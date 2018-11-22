@@ -46,4 +46,16 @@ ProductsStoresController.prototype.store = function(request, reply) {
     }
 };
 
+// [PUT] /productsstores/{id}
+ProductsStoresController.prototype.update = function(request, reply) {
+    try {
+        var id = request.params.id;
+        var product = request.payload.product;
+
+        reply(this.productsstoresModel.updateProduct(id, product));
+    } catch (e) {
+        reply(Boom.notFound(e.message));
+    }
+};
+
 module.exports = ProductsStoresController;

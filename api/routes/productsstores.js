@@ -47,9 +47,8 @@ exports.register = function(server, options, next) {
                 handler: productsstoresController.store,
                 validate: {
                     payload: Joi.object().length(1).keys({
-                        productname: Joi.string().required().min(1).max(50),
-                        productvalue: Joi.number().required(),
-                        description: Joi.string().required().min(1).max(100)
+                        productid: Joi.number().required().min(1).max(25),
+                        storeid: Joi.number().required().min(1).max(20)
                     })
                 }
             }
@@ -64,9 +63,8 @@ exports.register = function(server, options, next) {
                         id: Joi.string().regex(/[a-zA-Z0-9]{16}/)
                     },
                     payload: Joi.object().length(1).keys({
-                        productname: Joi.string().required().min(1).max(50),
-                        productvalue: Joi.number().required(),
-                        description: Joi.string().required().min(1).max(100)
+                        productid: Joi.number().required().min(1).max(25),
+                        storeid: Joi.number().required().min(1).max(20)
                     })
                 }
             }

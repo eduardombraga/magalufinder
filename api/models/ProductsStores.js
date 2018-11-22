@@ -6,4 +6,8 @@ function ProductsStoresModel(database) {
     this.db = database;
 };
 
+ProductsStoresModel.prototype.getAllProductsStores = function() {
+    return this.db.get('productsstores') || [];
+};
+
 module.exports = ProductsStoresModel;

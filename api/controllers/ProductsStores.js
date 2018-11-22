@@ -58,4 +58,16 @@ ProductsStoresController.prototype.update = function(request, reply) {
     }
 };
 
+// [DELETE] /productsstores/{id}
+ProductsStoresController.prototype.destroy = function(request, reply) {
+    try {
+        var id = request.params.id;
+
+        this.productsstoresModel.deleteProduct(id);
+        reply().code(204);
+    } catch (e) {
+        reply(Boom.notFound(e.message));
+    }
+};
+
 module.exports = ProductsStoresController;

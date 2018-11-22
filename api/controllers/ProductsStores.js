@@ -23,4 +23,15 @@ ProductsStoresController.prototype.index = function(request, reply) {
     reply(this.productsstoresModel.getProducts(start, limit));
 };
 
+// [GET] /productsstores/{id}
+ProductsStoresController.prototype.show = function(request, reply) {
+    try {
+        var id = request.params.id;
+
+        reply(this.productsstoresModel.getProduct(id));
+    } catch (e) {
+        reply(Boom.notFound(e.message));
+    }
+};
+
 module.exports = ProductsStoresController;

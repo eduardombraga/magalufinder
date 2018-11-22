@@ -20,7 +20,7 @@ ProductsStoresController.prototype.index = function(request, reply) {
         limit = start + 9
     }
 
-    reply(this.productsstoresModel.getProducts(start, limit));
+    reply(this.productsstoresModel.getProductsStores(start, limit));
 };
 
 // [GET] /productsstores/{id}

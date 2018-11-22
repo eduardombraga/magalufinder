@@ -34,4 +34,16 @@ ProductsStoresController.prototype.show = function(request, reply) {
     }
 };
 
+// [POST] /productsstores
+ProductsStoresController.prototype.store = function(request, reply) {
+    try {
+        var value = request.payload.product;
+
+        reply(this.productsstoresModel.addProduct(value))
+            .created();
+    } catch (e) {
+        reply(Boom.badRequest(e.message));
+    }
+};
+
 module.exports = ProductsStoresController;

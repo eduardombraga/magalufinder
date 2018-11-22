@@ -1,0 +1,46 @@
+{
+    "name": "desafio",
+    "version": "1.0.0",
+    "eslintConfig": {
+    "env": {
+        "browser": true,
+        "node": true
+    }
+    },
+    "description": "O magalu-finder é uma aplicação desenvolvida para o desafio da Tribo Operações Comerciais.",
+    "main": "index.js",
+    "scripts": {
+    "test": "NODE_ENV=test ./node_modules/.bin/lab --assert should",
+    "start": "nodemon index.js --exec babel-node --presets es2015"
+    },
+    "repository": {
+    "type": "git",
+    "url": "https://github.com/luisfelipegodoi/magalufinder.git"
+    },
+    "author": "Luis Felipe",
+    "bugs": {
+    "url": "https://github.com/luisfelipegodoi/magalufinder/issues"
+    },
+    "homepage": "https://github.com/luisfelipegodoi/magalufinder",
+    "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "boom": "^7.2.2",
+    "dotenv": "^6.1.0",
+    "hapi": "^16.0.1",
+    "hapi-auth-jwt": "^4.0.0",
+    "hapi-raven": "^7.0.0",
+    "joi": "^14.1.0",
+    "jsonwebtoken": "^8.4.0",
+    "knex": "^0.15.2",
+    "mysql": "^2.16.0"
+    },
+    "devDependencies": {
+    "blipp": "^3.1.1",
+    "chai": "^4.2.0",
+    "chai-json-schema": "^1.5.0",
+    "lab": "^18.0.0",
+    "nodemon": "^1.18.6",
+    "should": "^13.2.3"
+    }
+}

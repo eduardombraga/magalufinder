@@ -11,6 +11,7 @@ api/*.pid
 api/*.seed
 api/*.pid.lock
 api/dist
+api/package-lock.json
 
 # Loads environment variables
 api/*.env

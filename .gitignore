@@ -33,3 +33,27 @@ api/node_modules
 
 # Users Environment Variables
 api/.lock-wscript
+
+
+####Front-React####
+# dependencies
+front/node_modules
+front/package-lock.json
+
+# testing
+front/coverage
+
+# production
+front/build
+
+# misc
+front/.DS_Store
+front/.idea
+front/.env.local
+front/.env.development.local
+front/.env.test.local
+front/.env.production.local
+
+front/npm-debug.log*
+front/yarn-debug.log*
+front/yarn-error.log*

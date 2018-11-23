@@ -188,6 +188,11 @@ const Products = Loadable({
   loading: Loading,
 });
 
+const Stores = Loadable({
+  loader: () => import('./views/Stores/Stores'),
+  loading: Loading,
+});
+
 
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config

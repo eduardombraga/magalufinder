@@ -14,6 +14,11 @@ export default {
       icon: 'icon-puzzle',
     },
     {
+      name: 'Usuários',
+      url: '/Users',
+      icon: 'icon-puzzle',
+    },
+    {
       name: 'Base',
       url: '/base',
       icon: 'icon-puzzle',

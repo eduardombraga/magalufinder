@@ -261,13 +261,5 @@ export default {
       icon: 'icon-ban',
       attributes: { disabled: true },
     },
-    {
-      name: 'Download CoreUI',
-      url: 'https://coreui.io/react/',
-      icon: 'icon-cloud-download',
-      class: 'mt-auto',
-      variant: 'success',
-      attributes: { target: '_blank', rel: "noopener" },
-    },
   ],
 };

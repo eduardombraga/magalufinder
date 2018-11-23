@@ -35,7 +35,7 @@ class DefaultHeader extends Component {
             <NavLink href="#/users">Usuários</NavLink>
           </NavItem>
           <NavItem className="px-3">
-            <NavLink href="#">Lojas</NavLink>
+            <NavLink href="#/stores">Lojas</NavLink>
           </NavItem>
           <NavItem className="px-3">
             <NavLink href="#">Produtos</NavLink>

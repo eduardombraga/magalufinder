@@ -231,7 +231,8 @@ const routes = [
   // Customized Routes
   { path: '/products', exact: true,  name: 'Produtos', component: Users },
   { path: '/products/:id', exact: true,  name: 'Detalhes do Produto', component: Users },
-  { path: '/stores', exact: true,  name: 'Stores', component: Users },
+  { path: '/stores', exact: true,  name: 'Lojas', component: Users },
+  { path: '/stores/:id', exact: true,  name: 'Detalhes da Loja', component: Users },
   { path: '/productsstores', exact: true,  name: 'ProductsStores', component: Users },
 ];
 

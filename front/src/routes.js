@@ -198,6 +198,11 @@ const Stores = Loadable({
   loading: Loading,
 });
 
+const Store = Loadable({
+  loader: () => import('./views/Stores/Store'),
+  loading: Loading,
+});
+
 const ProductsStores = Loadable({
   loader: () => import('./views/ProductsStores/ProductsStores'),
   loading: Loading,

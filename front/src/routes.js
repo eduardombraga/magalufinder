@@ -226,7 +226,7 @@ const routes = [
   { path: '/widgets', name: 'Widgets', component: Widgets },
   { path: '/charts', name: 'Charts', component: Charts },
   { path: '/users', exact: true,  name: 'Users', component: Users },
-  { path: '/users/:id', exact: true, name: 'User Details', component: User },
+  { path: '/users/:id', exact: true, name: 'Detalhes do usuário', component: User },
 
   // Customized Routes
   { path: '/products', exact: true,  name: 'Products', component: Users },

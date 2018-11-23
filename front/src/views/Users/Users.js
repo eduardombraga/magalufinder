@@ -19,7 +19,7 @@ function UserRow(props) {
     <tr key={user.id.toString()}>
         <th scope="row"><a href={userLink}>{user.id}</a></th>
         <td><a href={userLink}>{user.usuario}</a></td>
-        <td>{user.registered}</td>
+        <td>{user.admin}</td>
     </tr>
   )
 }

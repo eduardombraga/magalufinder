@@ -182,6 +182,12 @@ const User = Loadable({
   loading: Loading,
 });
 
+// Customized Components
+const products = Loadable({
+  loader: () => import('./views/Products/Products'),
+  loading: Loading,
+});
+
 
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config

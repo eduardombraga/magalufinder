@@ -91,14 +91,11 @@ A aplicação está organizada da seguinte forma:
 │   └── .package.json
 │
 ├── front/
-│   ├── containers/
-│   ├── scss/
-│   ├── views/
-│   ├── App.js
-│   ├── App.test.js
-│   ├── index.js
-│   ├── _nav.js
-│   └── routes.js
+│   ├── public/
+│   ├── src/
+│   ├── .editorconfig
+│   ├── .env
+│   └── package.json
 │
 └── README.md
 ```

@@ -29,6 +29,11 @@ export default {
       icon: 'icon-puzzle',
     },
     {
+      name: 'Produtos x Lojas',
+      url: '/ProductsStores',
+      icon: 'icon-puzzle',
+    },
+    {
       name: 'Base',
       url: '/base',
       icon: 'icon-puzzle',

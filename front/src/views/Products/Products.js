@@ -29,7 +29,7 @@ function ProductRow(props) {
             <Col xl={6}>
               <Card>
                 <CardHeader>
-                  <i className="fa fa-align-justify"></i> Usuários <small className="text-muted">listagem</small>
+                  <i className="fa fa-align-justify"></i> Produtos <small className="text-muted">listagem</small>
                 </CardHeader>
                 <CardBody>
                   <Table responsive hover>

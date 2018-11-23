@@ -1,6 +1,6 @@
 
-# Magalu-Finder
-O magalu-finder é uma aplicação desenvolvida para o desafio da Tribo Operações Comerciais.
+# MagaluFinder
+O magalufinder é uma aplicação desenvolvida para o desafio da Tribo Operações Comerciais.
 Seu objetivo é ajudar os clientes do Magalu a encontrarem as lojas mais próximas que possuam o produto desejado.
 Aqui está a [descrição completa do desafio](https://gist.github.com/luisfelipegodoi/03139e6e00b7db6d387369de6e7ffe4a).
 
@@ -15,10 +15,10 @@ Aqui está a [descrição completa do desafio](https://gist.github.com/luisfelip
 
 ``` bash
 # clone o repositório
-$ git clone https://github.com/luisfelipegodoi/magalu-finder magalu-finder-luis-felipe
+$ git clone https://github.com/luisfelipegodoi/magalufinder magalufinder-luis-felipe
 
 # acesse o diretório da aplicação
-$ cd magalu-finder-luis-felipe
+$ cd magalufinder-luis-felipe
 
 # instale as dependências da aplicação
 $ npm install

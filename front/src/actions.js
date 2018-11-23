@@ -117,20 +117,8 @@ export function deleteObj(url, id) {
 export function fetchObjs(url, page = 1, records = 10) {
 
   let query = `${apiUrl}${url}`;
-
-  return dispatch => {
-    // swal({onOpen: () => { swal.showLoading()}});
-    return fetch(query, {
-
-    }).then(res => res.json())
-      .then(data => {
-        // swal.close()
-        console.log('error' + data);
-        dispatch(setObj(data));
-      }).catch(err => {
-        console.log(err);
-      });
-  }
+    
+    return fetch(query, {});
 }
 
 export function fetchObj(url, id) {

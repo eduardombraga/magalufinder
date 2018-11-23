@@ -27,6 +27,12 @@ function UserRow(props) {
 
 class Users extends Component {
 
+  componentDidMount() {
+    fetchObjs('/users').then((response) => {
+      console.log(response);
+    });
+  }
+
   render() {
 
     const userList = usersData.filter((user) => user.id)

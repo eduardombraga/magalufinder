@@ -183,7 +183,7 @@ const User = Loadable({
 });
 
 // Customized Components
-const products = Loadable({
+const Products = Loadable({
   loader: () => import('./views/Products/Products'),
   loading: Loading,
 });
@@ -235,7 +235,7 @@ const routes = [
   { path: '/users/:id', exact: true, name: 'Detalhes do usuário', component: User },
 
   // Customized Routes
-  { path: '/products', exact: true,  name: 'Produtos', component: Users },
+  { path: '/products', exact: true,  name: 'Produtos', component: Products },
   { path: '/products/:id', exact: true,  name: 'Detalhes do Produto', component: Users },
   { path: '/stores', exact: true,  name: 'Lojas', component: Users },
   { path: '/stores/:id', exact: true,  name: 'Detalhes da Loja', component: Users },

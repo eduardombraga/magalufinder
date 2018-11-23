@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Badge, Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
 
-import productsData from './productsData'
+import productsData from './ProductsData'
 
 function ProductRow(props) {
     const product = props.product
@@ -16,3 +16,44 @@ function ProductRow(props) {
       </tr>
     )
   }
+
+  class Products extends Component {
+
+    render() {
+  
+      const productList = productsData.filter((product) => product.id)
+  
+      return (
+        <div className="animated fadeIn">
+          <Row>
+            <Col xl={6}>
+              <Card>
+                <CardHeader>
+                  <i className="fa fa-align-justify"></i> Usuários <small className="text-muted">listagem</small>
+                </CardHeader>
+                <CardBody>
+                  <Table responsive hover>
+                    <thead>
+                      <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">produto</th>
+                        <th scope="col">valor</th>
+                        <th scope="col">descricao</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {productList.map((product, index) =>
+                        <ProductRow key={index} product={product}/>
+                      )}
+                    </tbody>
+                  </Table>
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
+        </div>
+      )
+    }
+  }
+  
+  export default Products;

@@ -249,7 +249,7 @@ const routes = [
   { path: '/products/:id', exact: true,  name: 'Detalhes do Produto', component: Users },
   { path: '/stores', exact: true,  name: 'Lojas', component: Stores },
   { path: '/stores/:id', exact: true,  name: 'Detalhes da Loja', component: Users },
-  { path: '/productsstores', exact: true,  name: 'Produtos x Loja', component: Users },
+  { path: '/productsstores', exact: true,  name: 'Produtos x Loja', component: ProductsStores },
   { path: '/productsstores/:id', exact: true,  name: 'Detalhes Prod x Loja', component: Users },
 ];
 

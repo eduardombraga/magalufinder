@@ -41,7 +41,7 @@ class DefaultHeader extends Component {
             <NavLink href="#/products">Produtos</NavLink>
           </NavItem>
           <NavItem className="px-3">
-            <NavLink href="#">Produtos x Lojas</NavLink>
+            <NavLink href="#/productsstores">Produtos x Lojas</NavLink>
           </NavItem>
         </Nav>
         <Nav className="ml-auto" navbar>

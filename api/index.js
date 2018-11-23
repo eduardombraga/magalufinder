@@ -41,6 +41,9 @@ var plugins = [
         options: {
             database: database
         }
+    },
+    {
+        register: require('hapi-cors')
     }
 ];
 

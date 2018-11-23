@@ -2,7 +2,7 @@ export default {
   items: [
     {
       title: true,
-      name: 'Components',
+      name: 'Menu',
       wrapper: {
         element: '',
         attributes: {},

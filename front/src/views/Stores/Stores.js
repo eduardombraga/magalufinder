@@ -15,3 +15,43 @@ function StoreRow(props) {
       </tr>
     )
   }
+
+class Stores extends Component {
+
+render() {
+
+    const storeList = storesData.filter((store) => store.storeid)
+
+    return (
+    <div className="animated fadeIn">
+        <Row>
+        <Col xl={6}>
+            <Card>
+            <CardHeader>
+                <i className="fa fa-align-justify"></i> Lojas <small className="text-muted">listagem</small>
+            </CardHeader>
+            <CardBody>
+                <Table responsive hover>
+                <thead>
+                    <tr>
+                    <th scope="col">filial</th>
+                    <th scope="col">cep</th>
+                    <th scope="col">descricao</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {storeList.map((store, index) =>
+                    <StoreRow key={index} store={store}/>
+                    )}
+                </tbody>
+                </Table>
+            </CardBody>
+            </Card>
+        </Col>
+        </Row>
+    </div>
+    )
+}
+}
+
+export default Stores;

@@ -21,6 +21,7 @@ $ git clone https://github.com/luisfelipegodoi/magalufinder magalufinder-luis-fe
 $ cd magalufinder-luis-felipe
 
 # instale as dependências da aplicação
+# este comando é necessário para 'api' e 'front'
 $ npm install
 ```
 
@@ -35,8 +36,19 @@ $ abra sua base mysql local e execute o  comando ```CREATE DATABASE magalufinder
 
 Após a criação da base local, já é possível executar as ```migrations``` e as ```seeds```.
 
+### Considerações
+
 ``` bash
-# instale o modulo knex globalmente
+# veja que o projeto está dividido em duas pastas raiz principais.
+# são elas: 'api' -> api desenvolvida em node.js | 'front' -> desenvolvido em react.
+# tais serviços são executados individualmente.
+# suba os serviços na seguinte ordem: 1º api, 2º react.
+```
+
+### Comandos api
+
+``` bash
+# acesse a pasta 'api' e instale o modulo knex globalmente
 $ sudo npm install knex -g
 ```
 
@@ -70,6 +82,20 @@ Navegue até [http://localhost:8000](http://localhost:8000). A aplicação será
 # execute `test` para executar os testes unitários.
 $ npm run test
 ```
+
+### Comandos front
+
+``` bash
+# acesse a pasta 'front' e instale as dependências
+$ npm install
+```
+
+``` bash
+# o serviço será iniciado em: http://localhost:3000
+$ npm start
+```
+
+Navegue até [http://localhost:3000](http://localhost:3000). A aplicação será carregada automaticamente após a execução do comando mencionado acima.
 
 ## Estrutura do projeto
 

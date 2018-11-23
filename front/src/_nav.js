@@ -9,6 +9,11 @@ export default {
       },
     },
     {
+      name: 'Inicio',
+      url: '/',
+      icon: 'icon-puzzle',
+    },
+    {
       name: 'Base',
       url: '/base',
       icon: 'icon-puzzle',

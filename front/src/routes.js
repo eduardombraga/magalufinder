@@ -188,6 +188,11 @@ const Products = Loadable({
   loading: Loading,
 });
 
+const Product = Loadable({
+  loader: () => import('./views/Products/Product'),
+  loading: Loading,
+});
+
 const Stores = Loadable({
   loader: () => import('./views/Stores/Stores'),
   loading: Loading,

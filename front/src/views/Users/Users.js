@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Badge, Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
+import {fetchObjs} from '../../actions';
 
 import usersData from './UsersData'
 

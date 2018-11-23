@@ -24,11 +24,6 @@ export default {
       icon: 'icon-drop',
     },
     {
-      name: 'Typography',
-      url: '/theme/typography',
-      icon: 'icon-pencil',
-    },
-    {
       title: true,
       name: 'Components',
       wrapper: {

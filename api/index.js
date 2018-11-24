@@ -43,6 +43,9 @@ var plugins = [
         }
     },
     {
+        register: require('./routes/findnearproducts.js')
+    },
+    {
         register: require('hapi-cors')
     }
 ];

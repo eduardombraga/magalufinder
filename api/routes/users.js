@@ -35,7 +35,7 @@ exports.register = function(server, options, next) {
                 handler: usersController.show,
                 validate: {
                     params: {
-                        id: Joi.string().regex(/[a-zA-Z0-9]{16}/)
+                        id: Joi.string().required().min(1).max(20)
                     }
                 }
             }

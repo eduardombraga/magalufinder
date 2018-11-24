@@ -11,17 +11,8 @@ UsersModel.prototype.getAllUsers = function() {
 };
 
 UsersModel.prototype.findUserByProperty = function(prop, value) {
-    var user, i, len;
-    var users = this.getAllUsers();
 
-    for (i = 0, len = users.length; i < len; i++) {
-        user = users[i];
-        if (user[prop] === value) {
-            return user;
-        }
-    }
-
-    return null;
+    return this.db.select().from('users').where('id', value);
 };
 
 UsersModel.prototype.getUsers = function(start, limit) {

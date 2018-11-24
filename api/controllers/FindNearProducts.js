@@ -6,7 +6,7 @@ var req = require('request');
 function FindNearProductsController() {
 };
 
-// [GET] /findnearproducts
+// [GET] /findnearproducts/{originCep}/{destinationCep}
 FindNearProductsController.prototype.index = function(request, reply) {
 
     try {

@@ -22,7 +22,8 @@ exports.register = function(server, options, next) {
                 handler: findnearproductsController.index,
                 validate: {
                     params: {
-                        id: Joi.string().regex(/[a-zA-Z0-9]{16}/)
+                        originCep: Joi.string().required().min(1).max(10),
+                        destinationCep: Joi.string().required().min(1).max(10)
                     }
                 }
             }

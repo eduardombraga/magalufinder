@@ -6,27 +6,27 @@ exports.seed = function(knex, Promise) {
         
         {
             storeid: 1,
-            cep: '14400660',
+            cep: '14400-660',
             description: 'Filial 1 Magazine Luiza. Loja Centro. Franca-SP',
         },
         {
             storeid: 48,
-            cep: '14406005',
+            cep: '14406-005',
             description: 'Filial 48 Magazine Luiza. Loja Franca Shopping. Franca-SP',
         },
         {
             storeid: 13,
-            cep: '14400902',
+            cep: '14400-902',
             description: 'Filial 13 Magazine Luiza. Loja Estação. Franca-SP',
         },
         {
             storeid: 4,
-            cep: '14401234',
+            cep: '14401-234',
             description: 'Filial 4 Magazine Luiza. Loja Avenida Brasil. Franca-SP',
         },
         {
             storeid: 3,
-            cep: '14010060',
+            cep: '14010-060',
             description: 'Filial 3 Magazine Luiza. Loja Saldanha Marinho. Ribeirao Preto-SP',
         },
 

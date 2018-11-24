@@ -6,6 +6,17 @@ var Hapi = require('hapi');
 var database = new Database();
 var server = new Hapi.Server({debug: {request: ['info', 'error']}});
 
+// Knex
+var knex = require('knex')({
+    client: 'mysql',
+    connection: {
+        host: '127.0.0.1',
+        user: 'root',
+        password: 'E=mc21988',
+        database: 'magalufinder'
+    }
+});
+
 // Expose database
 if (process.env.NODE_ENV === 'test') {
     server.database = database;

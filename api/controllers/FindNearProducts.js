@@ -3,13 +3,6 @@
 var Boom = require('boom');
 var req = require('request');
 
-var options = {
-    method: 'GET',
-    json: true
-}
-var originCep = '14403-363';
-var destinationCep = '14010-060';
-
 function FindNearProductsController() {
 };
 

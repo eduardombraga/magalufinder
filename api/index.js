@@ -25,6 +25,12 @@ DotEnv.config({ path: Path.join(__dirname, '/.env'), silent: true });
 // Add plugins, including routes
 var plugins = [
     {
+        register: require('./routes/login.js'),
+        options: {
+            database: database
+        }
+    },
+    {
         register: require('./routes/users.js'),
         options: {
             database: database

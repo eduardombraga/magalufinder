@@ -30,6 +30,23 @@ exports.register = function(server, options, next) {
         }
     ]);
 
+    server.route([
+        {
+            method: 'GET',
+            path: '/findnearproducts/{product}/{originCep}/{destinationCep}',
+            config: {
+                handler: findnearproductsController.findnearstores,
+                validate: {
+                    params: {
+                        product: Joi.string().required().min(1).max(50),
+                        originCep: Joi.string().required().min(1).max(10),
+                        destinationCep: Joi.string().required().min(1).max(10)
+                    }
+                }
+            }
+        }
+    ]);
+
     next();
 }
 

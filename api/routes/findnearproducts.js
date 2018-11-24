@@ -17,14 +17,13 @@ exports.register = function(server, options, next) {
     server.route([
         {
             method: 'GET',
-            path: '/findnearproducts',
+            path: '/findnearproducts/{originCep}/{destinationCep}',
             config: {
                 handler: findnearproductsController.index,
                 validate: {
-                    query: Joi.object().keys({
-                        start: Joi.number().min(0),
-                        limit: Joi.number().min(1)
-                    })
+                    params: {
+                        id: Joi.string().regex(/[a-zA-Z0-9]{16}/)
+                    }
                 }
             }
         }

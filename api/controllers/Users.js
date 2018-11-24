@@ -20,11 +20,6 @@ UsersController.prototype.index = function(request, reply) {
         limit = start + 9
     }
 
-    // for tests
-    //var getOperation = knex.select().from('users');
-
-    //reply(getOperation);
-
     reply(this.usersModel.getUsers(start, limit));
 };
 

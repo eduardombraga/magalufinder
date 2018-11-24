@@ -27,18 +27,6 @@ exports.register = function(server, options, next) {
                     })
                 }
             }
-        },
-        {
-            method: 'GET',
-            path: '/findnearproducts/{id}',
-            config: {
-                handler: findnearproductsController.show,
-                validate: {
-                    params: {
-                        id: Joi.string().regex(/[a-zA-Z0-9]{16}/)
-                    }
-                }
-            }
         }
     ]);
 

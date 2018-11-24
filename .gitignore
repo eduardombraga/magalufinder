@@ -47,8 +47,10 @@ front/coverage
 front/build
 
 # misc
+front/.editorconfig
 front/.DS_Store
 front/.idea
+front/.env
 front/.env.local
 front/.env.development.local
 front/.env.test.local

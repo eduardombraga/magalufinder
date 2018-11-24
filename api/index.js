@@ -44,7 +44,7 @@ var plugins = [
     {
         register: require('./routes/users.js'),
         options: {
-            database: database
+            knex: knex
         }
     },
     {

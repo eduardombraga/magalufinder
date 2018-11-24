@@ -3,8 +3,8 @@
 var Boom = require('boom');
 var UsersModel = require('../models/Users');
 
-function UsersController(database) {
-    this.usersModel = new UsersModel(database);
+function UsersController(knex) {
+    this.usersModel = new UsersModel(knex);
 };
 
 // [GET] /users
@@ -19,6 +19,11 @@ UsersController.prototype.index = function(request, reply) {
     if (limit == null) {
         limit = start + 9
     }
+
+    // for tests
+    //var getOperation = knex.select().from('users');
+
+    //reply(getOperation);
 
     reply(this.usersModel.getUsers(start, limit));
 };

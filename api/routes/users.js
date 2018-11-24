@@ -6,7 +6,7 @@ var UsersController = require('../controllers/Users');
 
 exports.register = function(server, options, next) {
     // Setup the controller
-    var usersController = new UsersController(options.database);
+    var usersController = new UsersController(options.knex);
 
     // Binds all methods
     // similar to doing `usersController.index.bind(usersController);`

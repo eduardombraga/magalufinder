@@ -2,12 +2,12 @@
 
 var crypto = require('crypto');
 
-function UsersModel(database) {
-    this.db = database;
+function UsersModel(knex) {
+    this.db = knex;
 };
 
 UsersModel.prototype.getAllUsers = function() {
-    return this.db.get('users') || [];
+    return this.db.select().from('users');
 };
 
 UsersModel.prototype.findUserByProperty = function(prop, value) {
@@ -26,7 +26,8 @@ UsersModel.prototype.findUserByProperty = function(prop, value) {
 
 UsersModel.prototype.getUsers = function(start, limit) {
     var users = this.getAllUsers();
-    return users.slice(start, limit + 1);
+
+    return users;
 };
 
 UsersModel.prototype.getUser = function(id) {

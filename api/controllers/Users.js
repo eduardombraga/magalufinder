@@ -37,9 +37,11 @@ UsersController.prototype.show = function(request, reply) {
 // [POST] /users
 UsersController.prototype.store = function(request, reply) {
     try {
-        var value = request.payload.user;
+        var username = request.payload.username;
+        var userpassword = request.payload.userpassword;
+        var useradmin = request.payload.useradmin;
 
-        reply(this.usersModel.addUser(value))
+        reply(this.usersModel.addUser(username, userpassword, useradmin))
             .created();
     } catch (e) {
         reply(Boom.badRequest(e.message));

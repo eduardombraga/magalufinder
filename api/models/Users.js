@@ -1,7 +1,5 @@
 'use strict';
 
-var crypto = require('crypto');
-
 function UsersModel(knex) {
     this.db = knex;
 };
@@ -32,23 +30,12 @@ UsersModel.prototype.getUser = function(id) {
 };
 
 UsersModel.prototype.addUser = function(newUser) {
-    var users = this.getAllUsers();
-    newUser = newUser.trim();
 
-    // We don't want duplicates
-    if (this.findUserByProperty('value', newUser)) {
-        throw new Error('User already exists for id: ' + user.id);
-    }
-
-    var user = {
-        // Collisions can happen but unlikely
-        // 1 byte to hex turns into two characters
-        id: crypto.randomBytes(8).toString('hex'),
-        value: newUser
-    }
-    users.push(user);
-
-    this.db.set('users', users);
+    var user = this.db('users').insert({
+        username: username,
+        userpassword: userpassword,
+        useradmin: useradmin
+    });
 
     return user;
 };

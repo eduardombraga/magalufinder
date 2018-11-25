@@ -6,6 +6,7 @@ api/yarn-debug.log*
 api/yarn-error.log*
 
 # Runtime data
+api/.vscode
 api/pids
 api/*.pid
 api/*.seed

@@ -52,9 +52,11 @@ UsersController.prototype.store = function(request, reply) {
 UsersController.prototype.update = function(request, reply) {
     try {
         var id = request.params.id;
-        var user = request.payload.user;
+        var username = request.payload.username;
+        var userpassword = request.payload.userpassword;
+        var useradmin = request.payload.useradmin;
 
-        reply(this.usersModel.updateUser(id, user));
+        reply(this.usersModel.updateUser(id, username, userpassword, useradmin));
     } catch (e) {
         reply(Boom.notFound(e.message));
     }

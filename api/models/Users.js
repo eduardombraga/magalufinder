@@ -41,18 +41,23 @@ UsersModel.prototype.addUser = function(username, userpassword, useradmin) {
     return user;
 };
 
-UsersModel.prototype.updateUser = function(id, updatedUser) {
-    updatedUser = updatedUser.trim();
-
+UsersModel.prototype.updateUser = function(id, username, userpassword, useradmin) {
+    
     var user = this.findUserByProperty('id', id);
 
     if (!user) {
         throw new Error('User doesn\'t exists.');
     }
 
-    user.value = updatedUser;
-
-    return user;
+    return this.db('users').where('id', id).update({
+        username: username,
+        userpassword: userpassword,
+        useradmin: useradmin
+    }).then(function (data){
+        return 'Usuario atualizado com sucesso.';
+    }).catch(function (err){
+        return 'Falha ao atualizar usuário.';
+    });
 };
 
 UsersModel.prototype.deleteUser = function(id) {

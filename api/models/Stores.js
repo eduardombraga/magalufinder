@@ -9,17 +9,7 @@ StoresModel.prototype.getAllStores = function() {
 };
 
 StoresModel.prototype.findStoreByProperty = function(prop, value) {
-    var store, i, len;
-    var stores = this.getAllStores();
-
-    for (i = 0, len = stores.length; i < len; i++) {
-        store = stores[i];
-        if (store[prop] === value) {
-            return store;
-        }
-    }
-
-    return null;
+    return this.db('stores').select().where('storeid', value);
 };
 
 StoresModel.prototype.getStores = function(start, limit) {

@@ -6,7 +6,7 @@ var LoginController = require('../controllers/Login');
 
 exports.register = function(server, options, next) {
     // Setup the controller
-    var loginController = new LoginController(options.database);
+    var loginController = new LoginController(options.knex);
 
     // Binds all methods
     // similar to doing `loginController.index.bind(loginController);`

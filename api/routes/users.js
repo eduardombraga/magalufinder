@@ -46,7 +46,7 @@ exports.register = function(server, options, next) {
             config: {
                 handler: usersController.store,
                 validate: {
-                    payload: Joi.object().length(1).keys({
+                    payload: Joi.object().length(3).keys({
                         username: Joi.string().required().min(1).max(20),
                         userpassword: Joi.string().required().min(1).max(50),
                         useradmin: Joi.bool().default(false)
@@ -78,7 +78,7 @@ exports.register = function(server, options, next) {
                 handler: usersController.destroy,
                 validate: {
                     params: {
-                        id: Joi.string().regex(/[a-zA-Z0-9]{16}/)
+                        id: Joi.string().required().min(1).max(20)
                     }
                 }
             }

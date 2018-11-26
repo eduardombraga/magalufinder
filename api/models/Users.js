@@ -5,12 +5,13 @@ function UsersModel(knex) {
 };
 
 UsersModel.prototype.getAllUsers = function() {
-    return this.db.select().from('users');
+    //return this.db.select().from('users');
+    return this.db('users').select();
 };
 
 UsersModel.prototype.findUserByProperty = function(prop, value) {
 
-    return this.db.select().from('users').where('id', value);
+    return this.db('users').select().where('id', value);
 };
 
 UsersModel.prototype.getUsers = function(start, limit) {
@@ -29,7 +30,7 @@ UsersModel.prototype.getUser = function(id) {
     return user;
 };
 
-UsersModel.prototype.addUser = function(newUser) {
+UsersModel.prototype.addUser = function(username, userpassword, useradmin) {
 
     var user = this.db('users').insert({
         username: username,
@@ -56,21 +57,12 @@ UsersModel.prototype.updateUser = function(id, updatedUser) {
 
 UsersModel.prototype.deleteUser = function(id) {
     if (!this.findUserByProperty('id', id)) {
-        throw new Error('User doesn\'t exists.');
+       throw new Error('User doesn\'t exists.');
     }
 
-    var user, i, len;
-    var users = this.getAllUsers();
-
-    for (i = 0, len = users.length; i < len; i++) {
-        user = users[i];
-        if (user.id === id) {
-            // Removes user
-            users.splice(i, 1);
-            this.db.set('users', users);
-            return;
-        }
-    }
+    this.db('users').where('id', id).del();
+    console.log(id);
+    return;
 };
 
 module.exports = UsersModel;

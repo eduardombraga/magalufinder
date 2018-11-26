@@ -27,15 +27,47 @@ function UserRow(props) {
 
 class Users extends Component {
 
+    constructor(){
+        super();
+        this.state = {
+            users: []
+        }
+    }
+
   componentDidMount() {
     fetchObjs('/users').then((response) => {
-      console.log(response);
+      console.log({response});
+      this.setState({
+          users: response
+      })
     });
+  }
+
+  // Customized functions
+  columId(id){
+      console.log(id);
+  }
+
+  columName(id){
+    console.log(id);
+}
+
+columIsAdmin(id){
+    console.log(id);
+}
+
+  editar(id){
+    console.log('editar ' + id);
+  }
+
+  deletar(id){
+    console.log('deletar ' + id);
   }
 
   render() {
 
     const userList = usersData.filter((user) => user.id)
+    console.log({estado: this.state.users});
 
     return (
       <div className="animated fadeIn">
@@ -52,12 +84,25 @@ class Users extends Component {
                       <th scope="col">id</th>
                       <th scope="col">usuario</th>
                       <th scope="col">admin</th>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
                     </tr>
                   </thead>
                   <tbody>
-                    {userList.map((user, index) =>
-                      <UserRow key={index} user={user}/>
-                    )}
+                    {this.state.users ? 
+                        this.state.users.map((user, index) => {
+                            return ([
+                                <tr key={index}>
+                                <td scope="col" onClick={() => this.columId(user.id)}>{user.id}</td>
+                                <td scope="col" onClick={() => this.columName(user.id)}>{user.username}</td>
+                                <td scope="col" onClick={() => this.columIsAdmin(user.id)}>{user.useradmin}</td>
+                                <td scope="col" onClick={() => this.editar(user.id)}>editar</td>
+                                <td scope="col" onClick={() => this.deletar(user.id)}>deletar</td>
+                                </tr>
+                            ])
+                        }
+                    ) :
+                    null}
                   </tbody>
                 </Table>
               </CardBody>

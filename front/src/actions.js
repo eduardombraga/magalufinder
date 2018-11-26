@@ -117,8 +117,9 @@ export function deleteObj(url, id) {
 export function fetchObjs(url, page = 1, records = 10) {
 
   let query = `${apiUrl}${url}`;
-    
-    return fetch(query, {});
+
+    return fetch(query, {})
+    .then(res => res.json());
 }
 
 export function fetchObj(url, id) {

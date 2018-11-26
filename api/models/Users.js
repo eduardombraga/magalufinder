@@ -32,13 +32,15 @@ UsersModel.prototype.getUser = function(id) {
 
 UsersModel.prototype.addUser = function(username, userpassword, useradmin) {
 
-    var user = this.db('users').insert({
+    return this.db('users').insert({
         username: username,
         userpassword: userpassword,
         useradmin: useradmin
+    }).then(function (data){
+        return 'Usuario criado com sucesso.';
+    }).catch(function (err){
+        return 'Falha ao criar usuário.';
     });
-
-    return user;
 };
 
 UsersModel.prototype.updateUser = function(id, username, userpassword, useradmin) {

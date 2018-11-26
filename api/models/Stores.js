@@ -61,22 +61,18 @@ StoresModel.prototype.updateStore = function(id, storeid, cep, description) {
 };
 
 StoresModel.prototype.deleteStore = function(id) {
-    if (!this.findStoreByProperty('id', id)) {
+    if (!this.findStoreByProperty('storeid', id)) {
         throw new Error('Store doesn\'t exists.');
     }
 
-    var store, i, len;
-    var stores = this.getAllStores();
-
-    for (i = 0, len = stores.length; i < len; i++) {
-        store = stores[i];
-        if (store.id === id) {
-            // Removes store
-            stores.splice(i, 1);
-            this.db.set('stores', stores);
-            return;
-        }
-    }
+    return this.db('stores').where('storeid', id)
+            .del()
+            .then(function (data){
+                return 'Filial removida com sucesso.';
+            })
+            .catch(function (err){
+                return 'Falha ao deletar filial.';
+            });
 };
 
 module.exports = StoresModel;

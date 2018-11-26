@@ -106,7 +106,7 @@ export function deleteObj(url, id) {
       headers: {
         "Content-Type": "application/json",
       }
-    }).then(handleResponse)
+    })
       .then(data => {
         swal("", "Registro excluído com sucesso!", "success");
       });

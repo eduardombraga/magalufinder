@@ -64,7 +64,7 @@ columIsAdmin(id){
   deletar(id){
     console.log('deletar ' + id);
     // Delete
-    deleteObj(`/users/${id}`).then((response) => {
+    deleteObj(`/users`, id).then((response) => {
         console.log({response});
         this.setState({
             users: response

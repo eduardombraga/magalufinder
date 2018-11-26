@@ -58,4 +58,19 @@ ProductsStoresModel.prototype.updateProduct = function(productidParam, storeidPa
     });
 };
 
+ProductsStoresModel.prototype.deleteProductStore = function(productid, storeid) {
+    if (!this.findProductStoreByProperty('productid', productid)) {
+        throw new Error('Product doesn\'t exists.');
+    }
+
+    return this.db('productsstores').where('productid', productid).andWhere('storeid', storeid)
+            .del()
+            .then(function (data){
+                return 'Produto x Loja removido com sucesso.';
+            })
+            .catch(function (err){
+                return 'Falha ao deletar produto x loja.';
+            });
+};
+
 module.exports = ProductsStoresModel;

@@ -72,12 +72,13 @@ exports.register = function(server, options, next) {
         },
         {
             method: 'DELETE',
-            path: '/productsstores/{id}',
+            path: '/productsstores/{productid}/{storeid}',
             config: {
                 handler: productsstoresController.destroy,
                 validate: {
                     params: {
-                        id: Joi.string().regex(/[a-zA-Z0-9]{16}/)
+                        productid: Joi.string().required().min(1).max(20),
+                        storeid: Joi.string().required().min(1).max(20)
                     }
                 }
             }

@@ -64,9 +64,10 @@ ProductsStoresController.prototype.update = function(request, reply) {
 // [DELETE] /productsstores/{id}
 ProductsStoresController.prototype.destroy = function(request, reply) {
     try {
-        var id = request.params.id;
+        var productid = request.params.productid;
+        var storeid = request.params.storeid;
 
-        this.productsstoresModel.deleteProduct(id);
+        this.productsstoresModel.deleteProductStore(productid, storeid);
         reply().code(204);
     } catch (e) {
         reply(Boom.notFound(e.message));

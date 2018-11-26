@@ -41,8 +41,7 @@ ProductsModel.prototype.addProduct = function(productname, productvalue, descrip
     });
 };
 
-ProductsModel.prototype.updateProduct = function(id, updatedProduct) {
-    updatedProduct = updatedProduct.trim();
+ProductsModel.prototype.updateProduct = function(id, productname, productvalue, description) {
 
     var product = this.findProductByProperty('id', id);
 
@@ -50,9 +49,15 @@ ProductsModel.prototype.updateProduct = function(id, updatedProduct) {
         throw new Error('Product doesn\'t exists.');
     }
 
-    product.value = updatedProduct;
-
-    return product;
+    return this.db('products').where('id', id).update({
+        productname: productname,
+        productvalue: productvalue,
+        description: description
+    }).then(function (data){
+        return 'Produto atualizado com sucesso.';
+    }).catch(function (err){
+        return 'Falha ao atualizar produto.';
+    });
 };
 
 ProductsModel.prototype.deleteProduct = function(id) {

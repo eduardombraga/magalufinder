@@ -52,9 +52,11 @@ ProductsController.prototype.store = function(request, reply) {
 ProductsController.prototype.update = function(request, reply) {
     try {
         var id = request.params.id;
-        var product = request.payload.product;
+        var productname = request.payload.productname;
+        var productvalue = request.payload.productvalue;
+        var description = request.payload.description;
 
-        reply(this.productsModel.updateProduct(id, product));
+        reply(this.productsModel.updateProduct(id, productname, productvalue, description));
     } catch (e) {
         reply(Boom.notFound(e.message));
     }

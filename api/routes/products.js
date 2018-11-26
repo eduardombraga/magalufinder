@@ -61,9 +61,9 @@ exports.register = function(server, options, next) {
                 handler: productsController.update,
                 validate: {
                     params: {
-                        id: Joi.string().regex(/[a-zA-Z0-9]{16}/)
+                        id: Joi.string().required().min(1).max(20)
                     },
-                    payload: Joi.object().length(1).keys({
+                    payload: Joi.object().length(3).keys({
                         productname: Joi.string().required().min(1).max(50),
                         productvalue: Joi.number().required(),
                         description: Joi.string().required().min(1).max(100)

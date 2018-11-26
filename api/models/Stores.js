@@ -75,4 +75,17 @@ StoresModel.prototype.deleteStore = function(id) {
             });
 };
 
+StoresModel.prototype.getStoresByProduct = function(productid) {
+
+    return this.db('productsstores')
+                .where('productsstores.productid', productid)
+                .join('products', 'productsstores.productid', 'products.id')
+                .join('stores', 'productsstores.storeid', 'stores.storeid');
+};
+
+StoresModel.prototype.getStoresByCeps = function(ceps) {
+
+    return this.db('stores').whereIn('cep', ceps);
+};
+
 module.exports = StoresModel;

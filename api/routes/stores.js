@@ -41,6 +41,19 @@ exports.register = function(server, options, next) {
             }
         },
         {
+            method: 'GET',
+            path: '/findnearproducts/{productid}/{originCep}',
+            config: {
+                handler: storesController.findnearstores,
+                validate: {
+                    params: {
+                        productid: Joi.string().required().min(1).max(50),
+                        originCep: Joi.string().required().min(1).max(10)
+                    }
+                }
+            }
+        },
+        {
             method: 'POST',
             path: '/stores',
             config: {

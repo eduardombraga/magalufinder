@@ -28,7 +28,7 @@ ProductsStoresController.prototype.show = function(request, reply) {
     try {
         var id = request.params.id;
 
-        reply(this.productsstoresModel.getProduct(id));
+        reply(this.productsstoresModel.getProductStore(id));
     } catch (e) {
         reply(Boom.notFound(e.message));
     }

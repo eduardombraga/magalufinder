@@ -1,13 +1,11 @@
 'use strict';
 
-var crypto = require('crypto');
-
-function ProductsModel(database) {
-    this.db = database;
+function ProductsModel(knex) {
+    this.db = knex;
 };
 
 ProductsModel.prototype.getAllProducts = function() {
-    return this.db.get('products') || [];
+    return this.db('products').select();
 };
 
 ProductsModel.prototype.findProductByProperty = function(prop, value) {
@@ -26,7 +24,8 @@ ProductsModel.prototype.findProductByProperty = function(prop, value) {
 
 ProductsModel.prototype.getProducts = function(start, limit) {
     var products = this.getAllProducts();
-    return products.slice(start, limit + 1);
+
+    return products;
 };
 
 ProductsModel.prototype.getProduct = function(id) {

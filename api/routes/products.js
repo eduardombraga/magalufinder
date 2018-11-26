@@ -6,7 +6,7 @@ var ProductsController = require('../controllers/Products');
 
 exports.register = function(server, options, next) {
     // Setup the controller
-    var productsController = new ProductsController(options.database);
+    var productsController = new ProductsController(options.knex);
 
     // Binds all methods
     // similar to doing `productsController.index.bind(productsController);`

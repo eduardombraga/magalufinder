@@ -50,7 +50,7 @@ var plugins = [
     {
         register: require('./routes/products.js'),
         options: {
-            database: database
+            knex: knex
         }
     },
     {

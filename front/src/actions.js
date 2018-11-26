@@ -7,7 +7,7 @@ export const OBJ_FETCHED = 'OBJ_FETCHED';
 export const OBJ_UPDATED = 'OBJ_UPDATED';
 export const OBJ_DELETED = 'OBJ_DELETED';
 
-let msg = "Ocorreu algum problema com esta operação! \n Tente novamente ou entre em contato com nosso suporte : ) ";
+let msg = "Ocorreu algum problema com esta operação! \n Tente novamente.";
 
 function handleResponse(response) {
   if (response.ok) {
@@ -100,7 +100,7 @@ export function updateObj(url, obj, data) {
 }
 
 export function deleteObj(url, id) {
-    
+
     return fetch(`${apiUrl}${url}/${id}`, {
       method: 'delete',
       headers: {

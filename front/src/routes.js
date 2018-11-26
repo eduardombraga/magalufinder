@@ -183,6 +183,16 @@ const User = Loadable({
 });
 
 // Customized Components
+const UserInsert = Loadable({
+  loader: () => import('./views/Users/UserInsert'),
+  loading: Loading,
+});
+
+const UserEdit = Loadable({
+  loader: () => import('./views/Users/UserEdit'),
+  loading: Loading,
+});
+
 const Products = Loadable({
   loader: () => import('./views/Products/Products'),
   loading: Loading,
@@ -265,6 +275,8 @@ const routes = [
   { path: '/stores/:id', exact: true,  name: 'Detalhes da Loja', component: Store },
   { path: '/productsstores', exact: true,  name: 'Produtos x Loja', component: ProductsStores },
   { path: '/productsstores/:id', exact: true,  name: 'Detalhes Prod x Loja', component: ProductStore },
+  { path: '/usersinsert', exact: true,  name: 'Inserir usuário', component: UserInsert },
+  { path: '/usersedit/:id', exact: true,  name: 'Editar usuário', component: UserEdit },
 ];
 
 export default routes;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Badge, Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
-import {fetchObjs} from '../../actions';
+import {fetchObjs, deleteObj} from '../../actions';
 
 import usersData from './UsersData'
 
@@ -35,6 +35,7 @@ class Users extends Component {
     }
 
   componentDidMount() {
+      // List
     fetchObjs('/users').then((response) => {
       console.log({response});
       this.setState({
@@ -62,6 +63,13 @@ columIsAdmin(id){
 
   deletar(id){
     console.log('deletar ' + id);
+    // Delete
+    deleteObj(`/users/${id}`).then((response) => {
+        console.log({response});
+        this.setState({
+            users: response
+        })
+      });
   }
 
   render() {

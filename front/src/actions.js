@@ -100,7 +100,7 @@ export function updateObj(url, obj, data) {
 }
 
 export function deleteObj(url, id) {
-  return dispatch => {
+    
     return fetch(`${apiUrl}${url}/${id}`, {
       method: 'delete',
       headers: {
@@ -108,10 +108,8 @@ export function deleteObj(url, id) {
       }
     }).then(handleResponse)
       .then(data => {
-        dispatch(objDeleted(id));
         swal("", "Registro excluído com sucesso!", "success");
       });
-  }
 }
 
 export function fetchObjs(url, page = 1, records = 10) {

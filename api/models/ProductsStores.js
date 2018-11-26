@@ -28,4 +28,16 @@ ProductsStoresModel.prototype.getProductStore = function(id) {
     return product;
 };
 
+ProductsStoresModel.prototype.addProductStore = function(productid, storeid) {
+
+    return this.db('productsstores').insert({
+        productid: productid,
+        storeid: storeid
+    }).then(function (data){
+        return 'Produto x Loja criado com sucesso.';
+    }).catch(function (err){
+        return 'Falha ao criar produto x loja.';
+    });
+};
+
 module.exports = ProductsStoresModel;

@@ -46,9 +46,9 @@ exports.register = function(server, options, next) {
             config: {
                 handler: productsstoresController.store,
                 validate: {
-                    payload: Joi.object().length(1).keys({
-                        productid: Joi.number().required().min(1).max(25),
-                        storeid: Joi.number().required().min(1).max(20)
+                    payload: Joi.object().length(2).keys({
+                        productid: Joi.number().required(),
+                        storeid: Joi.number().required()
                     })
                 }
             }

@@ -52,9 +52,11 @@ StoresController.prototype.store = function(request, reply) {
 StoresController.prototype.update = function(request, reply) {
     try {
         var id = request.params.id;
-        var store = request.payload.store;
+        var storeid = request.payload.storeid;
+        var cep = request.payload.cep;
+        var description = request.payload.description;
 
-        reply(this.storesModel.updateStore(id, store));
+        reply(this.storesModel.updateStore(id, storeid, cep, description));
     } catch (e) {
         reply(Boom.notFound(e.message));
     }

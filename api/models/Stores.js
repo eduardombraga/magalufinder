@@ -41,18 +41,23 @@ StoresModel.prototype.addStore = function(storeid, cep, description) {
     });
 };
 
-StoresModel.prototype.updateStore = function(id, updatedStore) {
-    updatedStore = updatedStore.trim();
+StoresModel.prototype.updateStore = function(id, storeid, cep, description) {
 
-    var store = this.findStoreByProperty('id', id);
+    var store = this.findStoreByProperty('storeid', id);
 
     if (!store) {
         throw new Error('Store doesn\'t exists.');
     }
 
-    store.value = updatedStore;
-
-    return store;
+    return this.db('stores').where('storeid', id).update({
+        storeid: storeid,
+        cep: cep,
+        description: description
+    }).then(function (data){
+        return 'Filial atualizada com sucesso.';
+    }).catch(function (err){
+        return 'Falha ao atualizar filial.';
+    });
 };
 
 StoresModel.prototype.deleteStore = function(id) {

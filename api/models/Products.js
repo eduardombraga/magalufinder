@@ -9,17 +9,7 @@ ProductsModel.prototype.getAllProducts = function() {
 };
 
 ProductsModel.prototype.findProductByProperty = function(prop, value) {
-    var product, i, len;
-    var products = this.getAllProducts();
-
-    for (i = 0, len = products.length; i < len; i++) {
-        product = products[i];
-        if (product[prop] === value) {
-            return product;
-        }
-    }
-
-    return null;
+    return this.db('products').select().where('id', value);
 };
 
 ProductsModel.prototype.getProducts = function(start, limit) {

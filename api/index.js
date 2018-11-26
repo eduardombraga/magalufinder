@@ -60,6 +60,12 @@ var plugins = [
         }
     },
     {
+        register: require('./routes/productsstores.js'),
+        options: {
+            knex: knex
+        }
+    },
+    {
         register: require('./routes/findnearproducts.js')
     },
     {

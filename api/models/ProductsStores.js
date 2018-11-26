@@ -1,18 +1,17 @@
 'use strict';
 
-var crypto = require('crypto');
-
-function ProductsStoresModel(database) {
-    this.db = database;
+function ProductsStoresModel(knex) {
+    this.db = knex;
 };
 
 ProductsStoresModel.prototype.getAllProductsStores = function() {
-    return this.db.get('productsstores') || [];
+    return this.db('productsstores').select();
 };
 
 ProductsStoresModel.prototype.getProductsStores = function(start, limit) {
-    var products = this.getAllProductsStores();
-    return products.slice(start, limit + 1);
+    var productsstores = this.getAllProductsStores();
+
+    return productsstores;
 };
 
 module.exports = ProductsStoresModel;

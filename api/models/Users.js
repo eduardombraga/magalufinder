@@ -65,9 +65,14 @@ UsersModel.prototype.deleteUser = function(id) {
        throw new Error('User doesn\'t exists.');
     }
 
-    this.db('users').where('id', id).del();
-    console.log(id);
-    return;
+    return this.db('users').where('id', id)
+            .del()
+            .then(function (data){
+                return 'Usuario removido com sucesso.';
+            })
+            .catch(function (err){
+                return 'Falha ao deletar usuário.';
+            });
 };
 
 module.exports = UsersModel;

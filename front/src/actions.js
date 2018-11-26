@@ -122,20 +122,17 @@ export function fetchObjs(url, page = 1, records = 10) {
 
 export function fetchObj(url, id) {
 
-  return dispatch => {
     // swal({onOpen: () => { swal.showLoading()}});
     return fetch(`${apiUrl}${url}/${id}`, {
       
-    }).then(res => res.json())
+    })
       .then(data => {
         // swal.close()
         console.log(data);
-        dispatch(objFetched(data));
         if (data.records && data.records.length < 1) {
           swal("Ops!", "Nenhum registro encontrado : ) ", "warning");
         }
       });
-  }
 }
 
 export function autenticar(user, props) {

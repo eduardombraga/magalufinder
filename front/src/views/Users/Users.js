@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Badge, Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
-import {fetchObjs, deleteObj} from '../../actions';
+import {fetchObj, fetchObjs, deleteObj} from '../../actions';
 
 import usersData from './UsersData'
 
@@ -30,7 +30,8 @@ class Users extends Component {
     constructor(){
         super();
         this.state = {
-            users: []
+            users: [],
+            url: '/users'
         }
     }
 
@@ -46,7 +47,7 @@ class Users extends Component {
 
   // Customized functions
   columId(id){
-      console.log(id);
+      console.log(`${this.state.url}/`);
   }
 
   columName(id){
@@ -59,6 +60,13 @@ columIsAdmin(id){
 
   editar(id){
     console.log('editar ' + id);
+    // Editar
+    fetchObj(`/users`, id).then((response) => {
+        console.log({response});
+        this.setState({
+            users: response
+        })
+      });
   }
 
   deletar(id){
@@ -104,7 +112,7 @@ columIsAdmin(id){
                                 <td scope="col" onClick={() => this.columId(user.id)}>{user.id}</td>
                                 <td scope="col" onClick={() => this.columName(user.id)}>{user.username}</td>
                                 <td scope="col" onClick={() => this.columIsAdmin(user.id)}>{user.useradmin}</td>
-                                <td scope="col" onClick={() => this.editar(user.id)}>editar</td>
+                                <td scope="col" onClick={() => this.props.history.push(`${this.state.url}/${user.id}`)}>editar</td>
                                 <td scope="col" onClick={() => this.deletar(user.id)}>deletar</td>
                                 </tr>
                             ])

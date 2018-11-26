@@ -5,7 +5,6 @@ function UsersModel(knex) {
 };
 
 UsersModel.prototype.getAllUsers = function() {
-    //return this.db.select().from('users');
     return this.db('users').select();
 };
 

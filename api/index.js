@@ -56,7 +56,7 @@ var plugins = [
     {
         register: require('./routes/stores.js'),
         options: {
-            database: database
+            knex: knex
         }
     },
     {

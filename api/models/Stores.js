@@ -1,13 +1,11 @@
 'use strict';
 
-var crypto = require('crypto');
-
-function StoresModel(database) {
-    this.db = database;
+function StoresModel(knex) {
+    this.db = knex;
 };
 
 StoresModel.prototype.getAllStores = function() {
-    return this.db.get('stores') || [];
+    return this.db('stores').select();
 };
 
 StoresModel.prototype.findStoreByProperty = function(prop, value) {
@@ -26,7 +24,8 @@ StoresModel.prototype.findStoreByProperty = function(prop, value) {
 
 StoresModel.prototype.getStores = function(start, limit) {
     var stores = this.getAllStores();
-    return stores.slice(start, limit + 1);
+
+    return stores;
 };
 
 StoresModel.prototype.getStore = function(id) {

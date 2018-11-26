@@ -9,18 +9,10 @@ function LoginController(knex) {
 
 // [GET] /users
 LoginController.prototype.index = function(request, reply) {
-    var start = request.query.start;
-    var limit = request.query.limit;
+    var user = request.params.user;
+    var pass = request.params.pass;
 
-    if (start == null) {
-        start = 0
-    }
-
-    if (limit == null) {
-        limit = start + 9
-    }
-
-    reply(this.usersModel.getUsers(start, limit));
+    reply(this.usersModel.loginAuthUser(user, pass));
 };
 
 module.exports = LoginController;

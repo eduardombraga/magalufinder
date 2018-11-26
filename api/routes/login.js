@@ -17,11 +17,14 @@ exports.register = function(server, options, next) {
     server.route([
         {
             method: 'GET',
-            path: '/login',
+            path: '/login/{user}/{pass}',
             config: {
                 handler: loginController.index,
                 validate: {
-                    
+                    params: {
+                        user: Joi.string().required().min(1).max(20),
+                        pass: Joi.string().required().min(1).max(50)
+                    }
                 }
             }
         }

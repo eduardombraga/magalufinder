@@ -4,6 +4,14 @@ function UsersModel(knex) {
     this.db = knex;
 };
 
+UsersModel.prototype.loginAuthUser = function(user, pass) {
+    return this.db('users').select().where('username', user).andWhere('userpassword', pass).then(function (data){
+        return 'loginok';
+    }).catch(function (err){
+        return 'loginfailed';
+    });
+};
+
 UsersModel.prototype.getAllUsers = function() {
     return this.db('users').select();
 };

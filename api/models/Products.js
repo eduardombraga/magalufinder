@@ -65,18 +65,14 @@ ProductsModel.prototype.deleteProduct = function(id) {
         throw new Error('Product doesn\'t exists.');
     }
 
-    var product, i, len;
-    var products = this.getAllProducts();
-
-    for (i = 0, len = products.length; i < len; i++) {
-        product = products[i];
-        if (product.id === id) {
-            // Removes product
-            products.splice(i, 1);
-            this.db.set('products', products);
-            return;
-        }
-    }
+    return this.db('products').where('id', id)
+            .del()
+            .then(function (data){
+                return 'Produto removido com sucesso.';
+            })
+            .catch(function (err){
+                return 'Falha ao deletar produto.';
+            });
 };
 
 module.exports = ProductsModel;

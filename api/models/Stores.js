@@ -28,26 +28,17 @@ StoresModel.prototype.getStore = function(id) {
     return store;
 };
 
-StoresModel.prototype.addStore = function(newStore) {
-    var stores = this.getAllStores();
-    newStore = newStore.trim();
+StoresModel.prototype.addStore = function(storeid, cep, description) {
 
-    // We don't want duplicates
-    if (this.findStoreByProperty('value', newStore)) {
-        throw new Error('Store already exists for id: ' + store.id);
-    }
-
-    var store = {
-        // Collisions can happen but unlikely
-        // 1 byte to hex turns into two characters
-        id: crypto.randomBytes(8).toString('hex'),
-        value: newStore
-    }
-    stores.push(store);
-
-    this.db.set('stores', stores);
-
-    return store;
+    return this.db('stores').insert({
+        storeid: storeid,
+        cep: cep,
+        description: description
+    }).then(function (data){
+        return 'Filial criada com sucesso.';
+    }).catch(function (err){
+        return 'Falha ao criar filial.';
+    });
 };
 
 StoresModel.prototype.updateStore = function(id, updatedStore) {

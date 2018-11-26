@@ -37,9 +37,11 @@ StoresController.prototype.show = function(request, reply) {
 // [POST] /stores
 StoresController.prototype.store = function(request, reply) {
     try {
-        var value = request.payload.store;
+        var storeid = request.payload.storeid;
+        var cep = request.payload.cep;
+        var description = request.payload.description;
 
-        reply(this.storesModel.addStore(value))
+        reply(this.storesModel.addStore(storeid, cep, description))
             .created();
     } catch (e) {
         reply(Boom.badRequest(e.message));

@@ -37,9 +37,11 @@ ProductsController.prototype.show = function(request, reply) {
 // [POST] /products
 ProductsController.prototype.store = function(request, reply) {
     try {
-        var value = request.payload.product;
+        var productname = request.payload.productname;
+        var productvalue = request.payload.productvalue;
+        var description = request.payload.description;
 
-        reply(this.productsModel.addProduct(value))
+        reply(this.productsModel.addProduct(productname, productvalue, description))
             .created();
     } catch (e) {
         reply(Boom.badRequest(e.message));

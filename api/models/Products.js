@@ -28,26 +28,17 @@ ProductsModel.prototype.getProduct = function(id) {
     return product;
 };
 
-ProductsModel.prototype.addProduct = function(newProduct) {
-    var products = this.getAllProducts();
-    newProduct = newProduct.trim();
+ProductsModel.prototype.addProduct = function(productname, productvalue, description) {
 
-    // We don't want duplicates
-    if (this.findProductByProperty('value', newProduct)) {
-        throw new Error('Product already exists for id: ' + product.id);
-    }
-
-    var product = {
-        // Collisions can happen but unlikely
-        // 1 byte to hex turns into two characters
-        id: crypto.randomBytes(8).toString('hex'),
-        value: newProduct
-    }
-    products.push(product);
-
-    this.db.set('products', products);
-
-    return product;
+    return this.db('products').insert({
+        productname: productname,
+        productvalue: productvalue,
+        description: description
+    }).then(function (data){
+        return 'Produto criado com sucesso.';
+    }).catch(function (err){
+        return 'Falha ao criar produto.';
+    });
 };
 
 ProductsModel.prototype.updateProduct = function(id, updatedProduct) {

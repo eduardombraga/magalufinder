@@ -40,4 +40,22 @@ ProductsStoresModel.prototype.addProductStore = function(productid, storeid) {
     });
 };
 
+ProductsStoresModel.prototype.updateProduct = function(productidParam, storeidParam, productid, storeid) {
+
+    var product = this.findProductStoreByProperty('productid', productidParam);
+
+    if (!product) {
+        throw new Error('Product doesn\'t exists.');
+    }
+    console.log(productidParam + '  ' + storeidParam)
+    return this.db('productsstores').where('productid', productidParam).andWhere('storeid', storeidParam).update({
+        productid: productid,
+        storeid: storeid
+    }).then(function (data){
+        return 'Produto x Loja atualizado com sucesso.';
+    }).catch(function (err){
+        return 'Falha ao atualizar produto x loja.';
+    });
+};
+
 module.exports = ProductsStoresModel;

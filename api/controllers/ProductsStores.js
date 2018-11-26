@@ -50,10 +50,12 @@ ProductsStoresController.prototype.store = function(request, reply) {
 // [PUT] /productsstores/{id}
 ProductsStoresController.prototype.update = function(request, reply) {
     try {
-        var id = request.params.id;
-        var product = request.payload.product;
+        var productidParam = request.params.productid;
+        var storeidParam = request.params.storeid;
+        var productid = request.payload.productid;
+        var storeid = request.payload.storeid;
 
-        reply(this.productsstoresModel.updateProduct(id, product));
+        reply(this.productsstoresModel.updateProduct(productidParam, storeidParam, productid, storeid));
     } catch (e) {
         reply(Boom.notFound(e.message));
     }

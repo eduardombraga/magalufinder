@@ -55,16 +55,17 @@ exports.register = function(server, options, next) {
         },
         {
             method: 'PUT',
-            path: '/productsstores/{id}',
+            path: '/productsstores/{productid}/{storeid}',
             config: {
                 handler: productsstoresController.update,
                 validate: {
                     params: {
-                        id: Joi.string().regex(/[a-zA-Z0-9]{16}/)
+                        productid: Joi.string().required().min(1).max(20),
+                        storeid: Joi.string().required().min(1).max(20)
                     },
-                    payload: Joi.object().length(1).keys({
-                        productid: Joi.number().required().min(1).max(25),
-                        storeid: Joi.number().required().min(1).max(20)
+                    payload: Joi.object().length(2).keys({
+                        productid: Joi.number().required(),
+                        storeid: Joi.number().required()
                     })
                 }
             }

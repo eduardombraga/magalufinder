@@ -27,6 +27,51 @@ class Stores extends Component {
         }
     }
 
+    componentDidMount() {
+        // List
+      fetchObjs('/stores').then((response) => {
+        console.log({response});
+        this.setState({
+            stores: response
+        })
+      });
+    }
+
+    // Customized functions
+    columStoreid(id){
+        console.log(`${this.state.url}/`);
+    }
+
+    columCep(id){
+        console.log(id);
+    }
+
+    columDescription(id){
+        console.log(id);
+    }
+
+    editar(id){
+        console.log('editar ' + id);
+        // Editar
+        fetchObj(`/stores`, id).then((response) => {
+            console.log({response});
+            this.setState({
+                stores: response
+            })
+          });
+      }
+    
+      deletar(id){
+        console.log('deletar ' + id);
+        // Delete
+        deleteObj(`/stores`, id).then((response) => {
+            console.log({response});
+            this.setState({
+                stores: response
+            })
+          });
+      }
+
 render() {
 
     const storeList = storesData.filter((store) => store.storeid)
@@ -46,12 +91,25 @@ render() {
                     <th scope="col">filial</th>
                     <th scope="col">cep</th>
                     <th scope="col">descricao</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    {storeList.map((store, index) =>
-                    <StoreRow key={index} store={store}/>
-                    )}
+                {this.state.stores ? 
+                    this.state.stores.map((store, index) => {
+                        return ([
+                            <tr key={index}>
+                            <td scope="col" onClick={() => this.columStoreid(store.storeid)}>{store.storeid}</td>
+                            <td scope="col" onClick={() => this.columCep(store.storeid)}>{store.cep}</td>
+                            <td scope="col" onClick={() => this.columDescription(store.storeid)}>{store.description}</td>
+                            <td scope="col" onClick={() => this.props.history.push(`${this.state.url}/${store.storeid}`)}>editar</td>
+                            <td scope="col" onClick={() => this.deletar(store.storeid)}>deletar</td>
+                            </tr>
+                        ])
+                    }
+                ) :
+                null}
                 </tbody>
                 </Table>
             </CardBody>

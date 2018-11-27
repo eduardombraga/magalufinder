@@ -86,28 +86,6 @@ StoresController.prototype.findnearstores = function(request, reply) {
 
         reply(this.storesModel.getStoresByProduct(productid));
 
-        // for(var i=0; i<JSON.parse(body).rows[0].elements.length; i++){
-        //     arrDist.push();
-        // }
-        // var cepFilial = '14400-660';
-        
-        // req('https://maps.googleapis.com/maps/api/distancematrix/json?origins='+originCep+'&destinations='+cepFilial+'&key='+process.env.GMAPS_TOKEN, function (error, response, body) { 
-            
-        //     reply(JSON.parse(body).rows[0].elements);
-        // });
-        
-
-        // inserindo os ceps no array
-        // for(var i=0; i<body.records.length; i++){
-        //     arrCeps.push(body.records[i].cep);
-        //
-        //     faço a requisição na api do maps com todos os ceps encontrados e guardo a distancia
-        //     req('https://maps.googleapis.com/maps/api/distancematrix/json?origins='+request.params.originCep+'&destinations='+request.params.destinationCep+'&key='+process.env.GMAPS_TOKEN, function (error, response, body) { 
-        //     var origin_addresses = JSON.parse(body).origin_addresses;    
-        //     JSON.parse(body).rows[0].elements[0].distance;
-        //     JSON.parse(body).rows[0].elements;
-        // }
-
     } catch (error) {
         reply(Boom.badRequest(error.message));
     }

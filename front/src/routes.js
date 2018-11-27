@@ -203,6 +203,16 @@ const Product = Loadable({
   loading: Loading,
 });
 
+const ProductInsert = Loadable({
+  loader: () => import('./views/Products/ProductInsert'),
+  loading: Loading,
+});
+
+const ProductEdit = Loadable({
+  loader: () => import('./views/Products/ProductEdit'),
+  loading: Loading,
+});
+
 const Stores = Loadable({
   loader: () => import('./views/Stores/Stores'),
   loading: Loading,
@@ -268,6 +278,8 @@ const routes = [
 
   // Customized Routes
   { path: '/products', exact: true,  name: 'Produtos', component: Products },
+  { path: '/products/insert', exact: true,  name: 'Inserir produto', component: ProductInsert },
+  { path: '/products/edit/:id', exact: true,  name: 'Editar produto', component: ProductEdit },
   { path: '/products/:id', exact: true,  name: 'Detalhes do Produto', component: Product },
   { path: '/stores', exact: true,  name: 'Lojas', component: Stores },
   { path: '/stores/:id', exact: true,  name: 'Detalhes da Loja', component: Store },

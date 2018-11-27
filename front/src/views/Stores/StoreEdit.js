@@ -24,6 +24,7 @@ import {
   Label,
   Row,
 } from 'reactstrap';
+import {fetchObj, updateObj, fetchObjs} from '../../actions';
 
 class StoreEdit extends Component {
   constructor(props) {
@@ -32,11 +33,25 @@ class StoreEdit extends Component {
     this.toggle = this.toggle.bind(this);
     this.toggleFade = this.toggleFade.bind(this);
     this.state = {
+        storeid: '',
+        cep: '',
+        description: '',
       collapse: true,
       fadeIn: true,
       timeout: 300,
+      url: '/users',
       cancelUrl: '/dashboard'
     };
+  }
+
+  componentDidMount = () => {
+    const { match } = this.props;
+    if (match.params.id) {
+      fetchObj(this.state.url, match.params.id)
+        .then((response) => {
+          this.setState({ ...response[0] });
+        });
+    }
   }
 
   toggle() {
@@ -46,6 +61,17 @@ class StoreEdit extends Component {
   toggleFade() {
     this.setState((prevState) => { return { fadeIn: !prevState }});
   }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    updateObj(`${this.state.url}/`, this.state)
+      .then((props) => this.props.history.push(this.state.url));
+  }
+
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
 
   render() {
     return (

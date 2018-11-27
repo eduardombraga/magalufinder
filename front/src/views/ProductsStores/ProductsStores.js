@@ -24,7 +24,48 @@ class ProductsStores extends Component {
         productsstores: [],
         url: '/productsstores'
     }
-}
+    }
+
+    componentDidMount() {
+        // List
+      fetchObjs('/productsstores').then((response) => {
+        console.log({response});
+        this.setState({
+            productsstores: response
+        })
+      });
+    }
+  
+    // Customized functions
+    columProductId(id){
+        console.log(`${this.state.url}/`);
+    }
+  
+    columStoreId(id){
+      console.log(id);
+  }
+  
+    editar(id){
+      console.log('editar ' + id);
+      // Editar
+      fetchObj(`/productsstores`, id).then((response) => {
+          console.log({response});
+          this.setState({
+            productsstores: response
+          })
+        });
+    }
+  
+    deletar(id){
+      console.log('deletar ' + id);
+      // Delete
+      deleteObj(`/productsstores`, id).then((response) => {
+          console.log({response});
+          this.setState({
+              productsstores: response
+          })
+        });
+    }
 
     render() {
   

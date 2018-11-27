@@ -57,7 +57,7 @@ class ProductEdit extends Component {
                 Editar produto
               </CardHeader>
               <CardBody>
-                <Form action="" method="post">
+                <Form action="" method="post" onSubmit={this.handleSubmit}>
                 <FormGroup>
                 <Label htmlFor="vat">Nome</Label>
                 <Input type="text" id="vat" placeholder="nome do produto" />

@@ -60,18 +60,18 @@ class ProductInsert extends Component {
                 Inserir produto
               </CardHeader>
               <CardBody>
-                    <Form action="" method="post">
+                    <Form action="" method="post" onSubmit={this.handleSubmit}>
                     <FormGroup>
                     <Label htmlFor="vat">Nome</Label>
-                    <Input type="text" id="vat" placeholder="nome do produto" />
+                    <Input type="text" id="productname" name="productname" placeholder="nome do produto" />
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="street">Valor</Label>
-                    <Input type="text" id="street" placeholder="Valor R$" />
+                    <Input type="text" id="productvalue" name="productvalue" placeholder="Valor R$" />
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="street">Descrição</Label>
-                    <Input type="text" id="street" placeholder="Descreva o produto" />
+                    <Input type="text" id="description" name="description" placeholder="Descreva o produto" />
                 </FormGroup>
                   <FormGroup className="form-actions">
                     <Button type="submit" size="sm" color="success">Gravar</Button>

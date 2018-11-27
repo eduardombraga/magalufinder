@@ -93,12 +93,26 @@ function ProductRow(props) {
                         <th scope="col">produto</th>
                         <th scope="col">valor</th>
                         <th scope="col">descricao</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
                       </tr>
                     </thead>
                     <tbody>
-                      {productList.map((product, index) =>
-                        <ProductRow key={index} product={product}/>
-                      )}
+                    {this.state.products ? 
+                        this.state.products.map((product, index) => {
+                            return ([
+                                <tr key={index}>
+                                <td scope="col" onClick={() => this.columId(product.id)}>{product.id}</td>
+                                <td scope="col" onClick={() => this.columName(product.productname)}>{product.productname}</td>
+                                <td scope="col" onClick={() => this.columIsAdmin(product.productvalue)}>{product.productvalue}</td>
+                                <td scope="col" onClick={() => this.columIsAdmin(product.description)}>{product.description}</td>
+                                <td scope="col" onClick={() => this.props.history.push(`${this.state.url}/${product.id}`)}>editar</td>
+                                <td scope="col" onClick={() => this.deletar(product.id)}>deletar</td>
+                                </tr>
+                            ])
+                        }
+                    ) :
+                    null}
                     </tbody>
                   </Table>
                 </CardBody>

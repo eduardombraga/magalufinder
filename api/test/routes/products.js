@@ -64,7 +64,13 @@ describe('Routes /products', function() {
 
     describe('PUT /products/{id}', function() {
 
-        
+        it('validates id in url parameter', function(done) {
+            var options = {method: 'PUT', url: '/products/1', payload: {}};
+            server.inject(options, function(response) {
+                response.statusCode.should.be.exactly(400);
+                done();
+            });
+        });
 
     });
 

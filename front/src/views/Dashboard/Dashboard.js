@@ -509,7 +509,43 @@ class Dashboard extends Component {
 				</Col>
 				</Row>
 			</CardBody>
-			</Card>
+            </Card>
+            
+            <Row>
+            <Col xl={6}>
+                <Card>
+                <CardHeader>
+                    <i className="fa fa-align-justify"></i> Resultado da pesquisa <small className="text-muted">Distância entre ceps</small>
+                </CardHeader>
+                <CardBody>
+                    <Table responsive hover>
+                    <thead>
+                        <tr>
+                        <th scope="col">distância</th>
+                        <th scope="col">total em mts</th>
+                        <th scope="col">duração</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.state.users ? 
+                            this.state.users.map((user, index) => {
+                                return ([
+                                    <tr key={index}>
+                                    <td>distância</td>
+                                    <td>total em mts</td>
+                                    <td>duração</td>
+                                    </tr>
+                                ])
+                            }
+                        ) :
+                        null}
+                    </tbody>
+                    </Table>
+                </CardBody>
+                </Card>
+            </Col>
+            </Row>
+
 		</Col>
 		<Col xs="12" sm="6">
 			<Card>
@@ -530,7 +566,45 @@ class Dashboard extends Component {
 				</Col>
 				</FormGroup>
 			</CardBody>
-			</Card>
+            </Card>
+            
+            <Row>
+            <Col xl={6}>
+                <Card>
+                <CardHeader>
+                    <i className="fa fa-align-justify"></i> Resultado da pesquisa <small className="text-muted">Filiais que tem o produto</small>
+                </CardHeader>
+                <CardBody>
+                    <Table responsive hover>
+                    <thead>
+                        <tr>
+                        <th scope="col">produto</th>
+                        <th scope="col">filial</th>
+                        <th scope="col">descrição</th>
+                        <th scope="col">cep</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.state.users ? 
+                            this.state.users.map((user, index) => {
+                                return ([
+                                    <tr key={index}>
+                                    <td>produto</td>
+                                    <td>filial</td>
+                                    <td>descrição</td>
+                                    <td>cep</td>
+                                    </tr>
+                                ])
+                            }
+                        ) :
+                        null}
+                    </tbody>
+                    </Table>
+                </CardBody>
+                </Card>
+            </Col>
+            </Row>
+
 		</Col>
 		</Row>	
 	  

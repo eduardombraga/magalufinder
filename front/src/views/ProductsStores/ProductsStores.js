@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Badge, Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
-import {fetchObj, fetchObjs, deleteObj} from '../../actions';
+import {fetchObj, fetchObjs, deleteObj, deleteObj2} from '../../actions';
 
 import productsstoresData from './ProductsStoresData'
 
@@ -56,10 +56,10 @@ class ProductsStores extends Component {
         });
     }
   
-    deletar(id){
+    deletar(id, id2){
       console.log('deletar ' + id);
       // Delete
-      deleteObj(`/productsstores`, id).then((response) => {
+      deleteObj2(`/productsstores`, id, id2).then((response) => {
           console.log({response});
           this.setState({
               productsstores: response
@@ -85,12 +85,24 @@ class ProductsStores extends Component {
                       <tr>
                         <th scope="col">produto</th>
                         <th scope="col">loja</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
                       </tr>
                     </thead>
                     <tbody>
-                      {productstoreList.map((productstore, index) =>
-                        <ProductStoreRow key={index} productstore={productstore}/>
-                      )}
+                    {this.state.productsstores ? 
+                        this.state.productsstores.map((productsstores, index) => {
+                            return ([
+                                <tr key={index}>
+                                <td scope="col" onClick={() => this.columId(productsstores.productid)}>{productsstores.productid}</td>
+                                <td scope="col" onClick={() => this.columName(productsstores.storeid)}>{productsstores.storeid}</td>
+                                <td scope="col" onClick={() => this.props.history.push(`${this.state.url}/${productsstores.productid}`)}>editar</td>
+                                <td scope="col" onClick={() => this.deletar(productsstores.productid, productsstores.storeid)}>deletar</td>
+                                </tr>
+                            ])
+                        }
+                    ) :
+                    null}
                     </tbody>
                   </Table>
                 </CardBody>

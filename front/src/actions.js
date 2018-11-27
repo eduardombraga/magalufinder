@@ -112,6 +112,19 @@ export function deleteObj(url, id) {
       });
 }
 
+export function deleteObj2(url, id, id2) {
+
+    return fetch(`${apiUrl}${url}/${id}/${id2}`, {
+      method: 'delete',
+      headers: {
+        "Content-Type": "application/json",
+      }
+    })
+      .then(data => {
+        swal("", "Registro excluído com sucesso!", "success");
+      });
+}
+
 export function fetchObjs(url, page = 1, records = 10) {
 
   let query = `${apiUrl}${url}`;

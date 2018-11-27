@@ -76,7 +76,21 @@ describe('Routes /productsstores', function() {
 
     describe('DELETE /productsstores/{id}', function() {
 
-        
+        it('validates id in url parameter', function(done) {
+            var options = {method: 'DELETE', url: '/productsstores/1'};
+            server.inject(options, function(response) {
+                response.statusCode.should.be.exactly(400);
+                done();
+            });
+        });
+
+        it('returns 404 when task isn\'t found', function(done) {
+            var options = {method: 'DELETE', url: '/productsstores/123321555'};
+            server.inject(options, function(response) {
+                response.statusCode.should.be.exactly(404);
+                done();
+            });
+        });
 
     });
 

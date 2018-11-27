@@ -16,6 +16,9 @@ import {
   DropdownItem,
   DropdownMenu,
   DropdownToggle,
+  FormGroup,
+  Input,
+  Label,
   Progress,
   Row,
   Table,
@@ -484,7 +487,52 @@ class Dashboard extends Component {
     return (
       <div className="animated fadeIn">
 
-			
+		<Row>
+		<Col xs="12" sm="6">
+			<Card>
+			<CardHeader>
+				<strong>Distância entre ceps</strong>
+			</CardHeader>
+			<CardBody>
+				<Row>
+				<Col xs="4">
+					<FormGroup>
+					<Label htmlFor="postal-code">Cep origem</Label>
+					<Input type="text" id="postal-code" placeholder="Seu cep atual" />
+					</FormGroup>
+				</Col>
+				<Col xs="4">
+					<FormGroup>
+					<Label htmlFor="postal-code">Cep destino</Label>
+					<Input type="text" id="postal-code" placeholder="Cep da filial" />
+					</FormGroup>
+				</Col>
+				</Row>
+			</CardBody>
+			</Card>
+		</Col>
+		<Col xs="12" sm="6">
+			<Card>
+			<CardHeader>
+				<strong>Filiais que tem o produto que eu quero</strong>
+			</CardHeader>
+			<CardBody>
+				<FormGroup>
+				<Label htmlFor="company">Produto</Label>
+				<Input type="text" id="company" placeholder="Código do produto" />
+				</FormGroup>
+				<FormGroup row className="my-0">
+				<Col xs="4">
+					<FormGroup>
+					<Label htmlFor="postal-code">Cep</Label>
+					<Input type="text" id="postal-code" placeholder="Digite seu cep" />
+					</FormGroup>
+				</Col>
+				</FormGroup>
+			</CardBody>
+			</Card>
+		</Col>
+		</Row>	
 	  
       </div>
     );

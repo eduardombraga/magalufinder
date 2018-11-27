@@ -8,18 +8,19 @@ class Login extends Component {
         super();
         this.state = {
             users: [],
-            url: '/user'
+            url: '/user',
+            urlLoginOk: '/dashboard'
         }
     }
 
-  componentDidMount() {
-      // List
-      fetchObj2('/user').then((response) => {
-      console.log({response});
-      this.setState({
-          user: response
-      })
-    });
+  // Customized functions
+  isLoginOk(user, pass){
+    fetchObj2(`/login`, user, pass).then((response) => {
+        console.log({response});
+        this.setState({
+            login: response
+        })
+      });
   }
 
   render() {
@@ -52,7 +53,7 @@ class Login extends Component {
                       </InputGroup>
                       <Row>
                         <Col xs="6">
-                          <Button color="primary" className="px-4">Login</Button>
+                          <Button color="primary" className="px-4" onClick={() => this.props.history.push(`${this.state.urlLoginOk}`)}>Login</Button>
                         </Col>
                       </Row>
                     </Form>

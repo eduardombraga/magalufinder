@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Badge, Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
+import { Badge, Button, Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
 import {fetchObj, fetchObjs, deleteObj} from '../../actions';
 
 import usersData from './UsersData'
@@ -31,7 +31,8 @@ class Users extends Component {
         super();
         this.state = {
             users: [],
-            url: '/users'
+            url: '/users',
+            urlInsert: '/users/insert'
         }
     }
 
@@ -87,6 +88,11 @@ columIsAdmin(id){
 
     return (
       <div className="animated fadeIn">
+        <Row>
+        <Col xl={2}>
+        <Card><Button type="submit" onClick={() => this.props.history.push(`${this.state.urlInsert}`)} size="sm" color="primary"><i className="fa fa-dot-circle-o"></i> Novo</Button></Card>
+        </Col>
+        </Row>
         <Row>
           <Col xl={6}>
             <Card>

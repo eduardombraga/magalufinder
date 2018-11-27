@@ -10,7 +10,7 @@ export default {
     },
     {
       name: 'Inicio',
-      url: '/',
+      url: '/dashboard',
       icon: 'icon-puzzle',
     },
     {

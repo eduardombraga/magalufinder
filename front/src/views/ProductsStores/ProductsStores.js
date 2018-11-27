@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Badge, Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
+import {fetchObj, fetchObjs, deleteObj} from '../../actions';
 
 import productsstoresData from './ProductsStoresData'
 
@@ -16,6 +17,14 @@ function ProductStoreRow(props) {
 }
 
 class ProductsStores extends Component {
+
+  constructor(){
+    super();
+    this.state = {
+        productsstores: [],
+        url: '/productsstores'
+    }
+}
 
     render() {
   

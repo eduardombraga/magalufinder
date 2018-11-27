@@ -74,27 +74,20 @@ export function saveObj(url, data) {
       });
 }
 
-export function updateObj(url, obj, data) {
-  return dispatch => {
-    swal({
-      onOpen: () => {
-        swal.showLoading()
-      }
+export function updateObj(url, data) {
+  
+  return fetch(`${apiUrl}${url}`, {
+    method: 'put',
+    body: JSON.stringify(
+      data
+    ),
+    headers: {
+      "Content-Type": "application/json",
+    }
+  }).then(handleResponse)
+    .then(data => {
+      swal("", "Registro atualizado com sucesso!", "success");
     });
-    return fetch(`${apiUrl}${url}/`, {
-      method: 'put',
-      body: JSON.stringify({
-        [obj]: data
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      }
-    }).then(handleResponse)
-      .then(data => {
-        dispatch(objUpdated(data));
-        swal("", "Registro atualizado com sucesso!", "success");
-      });
-  }
 }
 
 export function deleteObj(url, id) {

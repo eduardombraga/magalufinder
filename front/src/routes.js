@@ -228,9 +228,6 @@ const ProductStore = Loadable({
 const routes = [
   { path: '/', exact: true, name: 'Home', component: DefaultLayout },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
-  { path: '/theme', exact: true, name: 'Theme', component: Colors },
-  { path: '/theme/colors', name: 'Colors', component: Colors },
-  { path: '/theme/typography', name: 'Typography', component: Typography },
   { path: '/base', exact: true, name: 'Base', component: Cards },
   { path: '/base/cards', name: 'Cards', component: Cards },
   { path: '/base/forms', name: 'Forms', component: Forms },

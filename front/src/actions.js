@@ -58,13 +58,13 @@ export function objDeleted(id) {
   }
 }
 
-export function saveObj(url, obj, data) {
+export function saveObj(url, data) {
 
-    return fetch(`${apiUrl}${url}/`, {
+    return fetch(`${apiUrl}${url}`, {
       method: 'post',
-      body: JSON.stringify({
-        [obj]: data
-      }),
+      body: JSON.stringify(
+        data
+      ),
       headers: {
         "Content-Type": "application/json",
       }

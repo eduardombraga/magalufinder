@@ -15,11 +15,10 @@ class User extends Component {
     }
 
     componentDidMount() {
-        // List
       fetchObj('/user').then((response) => {
         console.log({response});
         this.setState({
-            users: response
+            user: response
         })
       });
     }
@@ -41,16 +40,18 @@ class User extends Component {
               <CardBody>
                   <Table responsive striped hover>
                     <tbody>
-                      {
-                        userDetails.map(([key, value]) => {
-                          return (
-                            <tr key={key}>
-                              <td>{`${key}:`}</td>
-                              <td><strong>{value}</strong></td>
-                            </tr>
-                          )
-                        })
-                      }
+                      {this.state.user ? 
+                        this.state.user.map((user, index) => {
+                            return ([
+                                <tr key={index}>
+                                <td scope="col" onClick={() => this.columId(user.id)}>{user.id}</td>
+                                <td scope="col" onClick={() => this.columName(user.id)}>{user.username}</td>
+                                </tr>
+                            ])
+                        }
+                    ) :
+                    null}
+
                     </tbody>
                   </Table>
               </CardBody>

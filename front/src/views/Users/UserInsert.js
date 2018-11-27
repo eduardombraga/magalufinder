@@ -24,6 +24,7 @@ import {
   Label,
   Row,
 } from 'reactstrap';
+import {saveObj} from '../../actions';
 
 class UserInsert extends Component {
   constructor(props) {

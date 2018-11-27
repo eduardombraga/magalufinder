@@ -26,7 +26,7 @@ import {
 } from 'reactstrap';
 import {saveObj} from '../../actions';
 
-class UserInsert extends Component {
+class ProductInsert extends Component {
   constructor(props) {
     super(props);
 
@@ -87,4 +87,4 @@ class UserInsert extends Component {
   }
 }
 
-export default UserInsert;
+export default ProductInsert;

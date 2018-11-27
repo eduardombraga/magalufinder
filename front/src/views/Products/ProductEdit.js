@@ -25,7 +25,7 @@ import {
   Row,
 } from 'reactstrap';
 
-class UserEdit extends Component {
+class ProductEdit extends Component {
   constructor(props) {
     super(props);
 
@@ -84,4 +84,4 @@ class UserEdit extends Component {
   }
 }
 
-export default UserEdit;
+export default ProductEdit;

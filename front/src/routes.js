@@ -243,6 +243,15 @@ const ProductStore = Loadable({
   loading: Loading,
 });
 
+const ProductsStoresInsert = Loadable({
+  loader: () => import('./views/ProductsStores/ProductStoreInsert'),
+  loading: Loading,
+});
+
+const ProductsStoresEdit = Loadable({
+  loader: () => import('./views/ProductsStores/ProductStoreEdit'),
+  loading: Loading,
+});
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
@@ -296,6 +305,8 @@ const routes = [
   { path: '/stores/edit/:id', exact: true,  name: 'Editar loja', component: StoreEdit },
   { path: '/stores/:id', exact: true,  name: 'Detalhes da Loja', component: Store },
   { path: '/productsstores', exact: true,  name: 'Produtos x Loja', component: ProductsStores },
+  { path: '/productsstores/insert', exact: true,  name: 'Inserir Produtos x Loja', component: ProductsStoresInsert },
+  { path: '/productsstores/edit/:id', exact: true,  name: 'Inserir Produtos x Loja', component: ProductsStoresEdit },
   { path: '/productsstores/:id', exact: true,  name: 'Detalhes Prod x Loja', component: ProductStore },
   { path: '/users/edit/:id', exact: true,  name: 'Editar usuário', component: UserEdit },
 ];

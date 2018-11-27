@@ -26,7 +26,52 @@ function ProductRow(props) {
           products: [],
           url: '/products'
       }
+    }
+
+    componentDidMount() {
+        // List
+      fetchObjs('/products').then((response) => {
+        console.log({response});
+        this.setState({
+            products: response
+        })
+      });
+    }
+  
+    // Customized functions
+    columId(id){
+        console.log(`${this.state.url}/`);
+    }
+  
+    columProduct(id){
+      console.log(id);
   }
+  
+  columProductValue(id){
+      console.log(id);
+  }
+  
+    editar(id){
+      console.log('editar ' + id);
+      // Editar
+      fetchObj(`/products`, id).then((response) => {
+          console.log({response});
+          this.setState({
+              products: response
+          })
+        });
+    }
+  
+    deletar(id){
+      console.log('deletar ' + id);
+      // Delete
+      deleteObj(`/products`, id).then((response) => {
+          console.log({response});
+          this.setState({
+              products: response
+          })
+        });
+    }
 
     render() {
   

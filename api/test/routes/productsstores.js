@@ -36,7 +36,29 @@ describe('Routes /productsstores', function() {
 
     describe('POST /productsstores', function() {
 
+        it('fails when there\'s no payload', function(done) {
+            var options = {method: 'POST', url: '/productsstores'};
+            server.inject(options, function(response) {
+                response.statusCode.should.be.exactly(400);
+                done();
+            });
+        });
 
+        it('fails with an invalid payload', function(done) {
+            var options = {method: 'POST', url: '/productsstores', payload: {}};
+            server.inject(options, function(response) {
+                response.statusCode.should.be.exactly(400);
+                done();
+            });
+        });
+
+        it('fails when there\'s too many properties in the payload', function(done) {
+            var options = {method: 'POST', url: '/productsstores', payload: {productid: 'a product id', something: 'else'}};
+            server.inject(options, function(response) {
+                response.statusCode.should.be.exactly(400);
+                done();
+            });
+        });
 
     });
 

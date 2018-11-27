@@ -25,6 +25,7 @@ import {
 } from 'reactstrap';
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities'
+import {fetchObj, fetchObj2} from '../../actions';
 
 // import Widget03 from '../../views/Widgets/Widget03'
 const Widget03 = lazy(() => import('../../views/Widgets/Widget03'));
@@ -469,6 +470,16 @@ class Dashboard extends Component {
       radioSelected: 2,
     };
   }
+
+  componentDidMount() {
+    // List
+    fetchObj2('/distancebetweenceps').then((response) => {
+    console.log({response});
+    this.setState({
+        users: response
+    })
+  });
+}
 
   toggle() {
     this.setState({

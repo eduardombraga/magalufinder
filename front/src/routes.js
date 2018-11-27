@@ -223,6 +223,16 @@ const Store = Loadable({
   loading: Loading,
 });
 
+const StoreInsert = Loadable({
+  loader: () => import('./views/Stores/StoreInsert'),
+  loading: Loading,
+});
+
+const StoreEdit = Loadable({
+  loader: () => import('./views/Stores/StoreEdit'),
+  loading: Loading,
+});
+
 const ProductsStores = Loadable({
   loader: () => import('./views/ProductsStores/ProductsStores'),
   loading: Loading,
@@ -282,6 +292,8 @@ const routes = [
   { path: '/products/edit/:id', exact: true,  name: 'Editar produto', component: ProductEdit },
   { path: '/products/:id', exact: true,  name: 'Detalhes do Produto', component: Product },
   { path: '/stores', exact: true,  name: 'Lojas', component: Stores },
+  { path: '/stores/insert', exact: true,  name: 'Inserir loja', component: StoreInsert },
+  { path: '/stores/edit/:id', exact: true,  name: 'Editar loja', component: StoreEdit },
   { path: '/stores/:id', exact: true,  name: 'Detalhes da Loja', component: Store },
   { path: '/productsstores', exact: true,  name: 'Produtos x Loja', component: ProductsStores },
   { path: '/productsstores/:id', exact: true,  name: 'Detalhes Prod x Loja', component: ProductStore },

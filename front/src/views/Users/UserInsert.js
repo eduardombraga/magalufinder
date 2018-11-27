@@ -35,7 +35,8 @@ class UserInsert extends Component {
     this.state = {
       collapse: true,
       fadeIn: true,
-      timeout: 300
+      timeout: 300,
+      cancelUrl: '/dashboard'
     };
   }
 
@@ -76,7 +77,7 @@ class UserInsert extends Component {
                   </FormGroup>
                   <FormGroup className="form-actions">
                     <Button type="submit" size="sm" color="success">Gravar</Button>
-                    <Button type="reset" size="sm" color="danger"><i className="fa fa-ban"></i> Cancelar</Button>
+                    <Button type="reset" onClick={() => this.props.history.push(`${this.state.cancelUrl}`)} size="sm" color="danger"><i className="fa fa-ban"></i> Cancelar</Button>
                   </FormGroup>
                 </Form>
               </CardBody>

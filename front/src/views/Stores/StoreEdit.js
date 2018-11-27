@@ -57,18 +57,18 @@ class StoreEdit extends Component {
                 Editar filial
               </CardHeader>
               <CardBody>
-                <Form action="" method="post">
+                <Form action="" method="post" onSubmit={this.handleSubmit}>
                 <FormGroup>
                     <Label htmlFor="vat">Filial</Label>
-                    <Input type="text" id="vat" placeholder="codigo da filial" />
+                    <Input type="text" id="storeid" name="storeid" placeholder="codigo da filial" />
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="street">Cep</Label>
-                    <Input type="text" id="street" placeholder="Cep" />
+                    <Input type="text" id="cep" name="cep" placeholder="Cep" />
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="street">Descrição</Label>
-                    <Input type="text" id="street" placeholder="Descreva a filial" />
+                    <Input type="text" id="description" name="description" placeholder="Descreva a filial" />
                 </FormGroup>
                   <FormGroup className="form-actions">
                     <Button type="submit" size="sm" color="success">Gravar</Button>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Badge, Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
+import { Badge, Button, Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
 import {fetchObj, fetchObjs, deleteObj, deleteObj2} from '../../actions';
 
 import productsstoresData from './ProductsStoresData'
@@ -22,7 +22,8 @@ class ProductsStores extends Component {
     super();
     this.state = {
         productsstores: [],
-        url: '/productsstores'
+        url: '/productsstores',
+        urlInsert: '/productsstores/insert'
     }
     }
 
@@ -73,6 +74,11 @@ class ProductsStores extends Component {
   
       return (
         <div className="animated fadeIn">
+        <Row>
+        <Col xl={2}>
+        <Card><Button type="submit" onClick={() => this.props.history.push(`${this.state.urlInsert}`)} size="sm" color="primary"><i className="fa fa-dot-circle-o"></i> Novo</Button></Card>
+        </Col>
+        </Row>
           <Row>
             <Col xl={6}>
               <Card>

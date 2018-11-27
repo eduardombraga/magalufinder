@@ -59,7 +59,7 @@ export function objDeleted(id) {
 }
 
 export function saveObj(url, obj, data) {
-  return dispatch => {
+
     return fetch(`${apiUrl}${url}/`, {
       method: 'post',
       body: JSON.stringify({
@@ -70,10 +70,8 @@ export function saveObj(url, obj, data) {
       }
     }).then(handleResponse)
       .then(data => {
-        dispatch(addObj(data));
         swal("", "Registro salvo com sucesso!", "success");
       });
-  }
 }
 
 export function updateObj(url, obj, data) {

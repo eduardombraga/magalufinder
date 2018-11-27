@@ -72,27 +72,25 @@ describe('Routes /users', function() {
             });
         });
 
-        it('fails when there\'s no payload', function(done) {
-            var options = {method: 'PUT', url: '/users/' + userID};
-            server.inject(options, function(response) {
-                response.statusCode.should.be.exactly(400);
-                done();
-            });
-        });
-
-        it('fails with an invalid payload', function(done) {
-            var options = {method: 'PUT', url: '/users/' + userID, payload: {}};
-            server.inject(options, function(response) {
-                response.statusCode.should.be.exactly(400);
-                done();
-            });
-        });
-
     });
 
     describe('DELETE /users/{id}', function() {
 
-        
+        it('validates id in url parameter', function(done) {
+            var options = {method: 'DELETE', url: '/users/1'};
+            server.inject(options, function(response) {
+                response.statusCode.should.be.exactly(400);
+                done();
+            });
+        });
+
+        it('returns 404 when task isn\'t found', function(done) {
+            var options = {method: 'DELETE', url: '/users/123321555'};
+            server.inject(options, function(response) {
+                response.statusCode.should.be.exactly(404);
+                done();
+            });
+        });
 
     });
 

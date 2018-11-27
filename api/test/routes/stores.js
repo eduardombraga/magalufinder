@@ -12,13 +12,25 @@ describe('Routes /stores', function() {
 
     describe('GET /stores', function() {
 
-
+        it('returns 200 HTTP status code', function(done) {
+            var options = {method: 'GET', url: '/stores'};
+            server.inject(options, function(response) {
+                response.statusCode.should.be.exactly(200);
+                done();
+            });
+        });
 
     });
 
     describe('GET /stores/{id}', function() {
 
-        
+        it('validates id in url parameter', function(done) {
+            var options = {method: 'GET', url: '/stores/1'};
+            server.inject(options, function(response) {
+                response.statusCode.should.be.exactly(400);
+                done();
+            });
+        });
 
     });
 

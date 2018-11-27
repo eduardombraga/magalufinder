@@ -1,9 +1,28 @@
 import React, { Component } from 'react';
 import { Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
+import {fetchObj} from '../../actions';
 
 import usersData from './UsersData'
 
 class User extends Component {
+
+    constructor(){
+        super();
+        this.state = {
+            user: [],
+            url: '/user'
+        }
+    }
+
+    componentDidMount() {
+        // List
+      fetchObj('/user').then((response) => {
+        console.log({response});
+        this.setState({
+            users: response
+        })
+      });
+    }
 
   render() {
 

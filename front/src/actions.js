@@ -130,13 +130,7 @@ export function fetchObj(url, id) {
     return fetch(`${apiUrl}${url}/${id}`, {
       
     })
-      .then(data => {
-        // swal.close()
-        console.log(data);
-        if (data.records && data.records.length < 1) {
-          swal("Ops!", "Nenhum registro encontrado : ) ", "warning");
-        }
-      });
+    .then(res => res.json());
 }
 
 export function fetchObj2(url, id, id2) {

@@ -24,7 +24,7 @@ import {
   Label,
   Row,
 } from 'reactstrap';
-import {fetchObj, updateObj} from '../../actions';
+import {fetchObj, updateObj, fetchObjs} from '../../actions';
 
 class UserEdit extends Component {
   constructor(props) {
@@ -39,6 +39,7 @@ class UserEdit extends Component {
       collapse: true,
       fadeIn: true,
       timeout: 300,
+      url: '/users',
       cancelUrl: '/dashboard'
     };
 
@@ -48,13 +49,11 @@ class UserEdit extends Component {
   componentDidMount = () => {
     const { match } = this.props;
     if (match.params.id) {
-      this.props.fetchObj(this.state.url, match.params.id)
-        .then(() => {
-          this.setState({ ...this.props });
+      fetchObj(this.state.url, match.params.id)
+        .then((response) => {
+          this.setState({ ...response[0] });
         });
     }
-    this.props.fetchObjs('/edit')
-      .then(() => { this.setState({ tiposdespesas: this.props.records }) });
   }
 
   toggle() {
@@ -65,18 +64,14 @@ class UserEdit extends Component {
     this.setState((prevState) => { return { fadeIn: !prevState }});
   }
 
-  saveObj = (obj) => {
-    if (obj.ID) {
-      return this.props.updateObj(this.state.url, this.state.nameObj, obj);
-    } else {
-      return this.props.saveObj(this.state.url, this.state.nameObj, obj);
-    }
-  }
-
   handleSubmit = (e) => {
     e.preventDefault();
-    this.saveObj(this.state)
+    updateObj(`${this.state.url}/`, this.state)
       .then((props) => this.props.history.push(this.state.url));
+  }
+
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   render() {
@@ -95,7 +90,7 @@ class UserEdit extends Component {
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText><i className="fa fa-user"></i></InputGroupText>
                       </InputGroupAddon>
-                      <Input type="text" id="username" name="username" placeholder="Username" autoComplete="name" value={this.state.username}/>
+                      <Input type="text" id="username" name="username" placeholder="Username" autoComplete="name" value={this.state.username} onChange={this.handleChange}/>
                     </InputGroup>
                   </FormGroup>
                   <FormGroup>
@@ -103,7 +98,7 @@ class UserEdit extends Component {
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText><i className="fa fa-asterisk"></i></InputGroupText>
                       </InputGroupAddon>
-                      <Input type="password" id="userpassword" name="userpassword" placeholder="Password" autoComplete="current-password" value={this.state.userpassword}/>
+                      <Input type="password" id="userpassword" name="userpassword" placeholder="Password" autoComplete="current-password" value={this.state.userpassword} onChange={this.handleChange}/>
                     </InputGroup>
                   </FormGroup>
                   <FormGroup className="form-actions">

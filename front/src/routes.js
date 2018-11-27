@@ -293,6 +293,7 @@ const routes = [
   { path: '/charts', name: 'Charts', component: Charts },
   { path: '/users', exact: true,  name: 'Users', component: Users },
   { path: '/users/insert', exact: true,  name: 'Inserir usuário', component: UserInsert }, // customized
+  { path: '/users/edit/:id', exact: true,  name: 'Editar usuário', component: UserEdit }, // customized
   { path: '/users/:id', exact: true, name: 'Detalhes do usuário', component: User },
 
   // Customized Routes
@@ -308,7 +309,6 @@ const routes = [
   { path: '/productsstores/insert', exact: true,  name: 'Inserir Produtos x Loja', component: ProductsStoresInsert },
   { path: '/productsstores/edit/:id', exact: true,  name: 'Inserir Produtos x Loja', component: ProductsStoresEdit },
   { path: '/productsstores/:id', exact: true,  name: 'Detalhes Prod x Loja', component: ProductStore },
-  { path: '/users/edit/:id', exact: true,  name: 'Editar usuário', component: UserEdit },
 ];
 
 export default routes;

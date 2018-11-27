@@ -31,7 +31,7 @@ class Users extends Component {
         super();
         this.state = {
             users: [],
-            url: '/users',
+            url: '/users/edit',
             urlInsert: '/users/insert'
         }
     }

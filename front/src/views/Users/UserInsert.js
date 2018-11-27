@@ -33,11 +33,16 @@ class UserInsert extends Component {
     this.toggle = this.toggle.bind(this);
     this.toggleFade = this.toggleFade.bind(this);
     this.state = {
+      username: '',
+      userpassword: '',
       collapse: true,
       fadeIn: true,
       timeout: 300,
+      url: '/users',
       cancelUrl: '/dashboard'
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   toggle() {
@@ -46,6 +51,17 @@ class UserInsert extends Component {
 
   toggleFade() {
     this.setState((prevState) => { return { fadeIn: !prevState }});
+  }
+
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state);
+    saveObj(this.state.url, this.state)
+      .then((props) => this.props.history.push(this.state.url));
   }
 
   render() {
@@ -58,13 +74,13 @@ class UserInsert extends Component {
                 Inserir usuário
               </CardHeader>
               <CardBody>
-                <Form action="" method="post">
+                <Form action="" method="post" onSubmit={this.handleSubmit}>
                   <FormGroup>
                     <InputGroup>
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText><i className="fa fa-user"></i></InputGroupText>
                       </InputGroupAddon>
-                      <Input type="text" id="username1" name="username1" placeholder="Username" autoComplete="name"/>
+                      <Input type="text" id="username" name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange} autoComplete="name"/>
                     </InputGroup>
                   </FormGroup>
                   <FormGroup>
@@ -72,7 +88,7 @@ class UserInsert extends Component {
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText><i className="fa fa-asterisk"></i></InputGroupText>
                       </InputGroupAddon>
-                      <Input type="password" id="password1" name="password1" placeholder="Password" autoComplete="current-password"/>
+                      <Input type="password" id="userpassword" name="userpassword" placeholder="Password" value={this.state.userpassword} onChange={this.handleChange} autoComplete="current-password"/>
                     </InputGroup>
                   </FormGroup>
                   <FormGroup className="form-actions">

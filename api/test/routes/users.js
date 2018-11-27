@@ -64,7 +64,29 @@ describe('Routes /users', function() {
 
     describe('PUT /users/{id}', function() {
 
-        
+        it('validates id in url parameter', function(done) {
+            var options = {method: 'PUT', url: '/users/1', payload: {}};
+            server.inject(options, function(response) {
+                response.statusCode.should.be.exactly(400);
+                done();
+            });
+        });
+
+        it('fails when there\'s no payload', function(done) {
+            var options = {method: 'PUT', url: '/users/' + userID};
+            server.inject(options, function(response) {
+                response.statusCode.should.be.exactly(400);
+                done();
+            });
+        });
+
+        it('fails with an invalid payload', function(done) {
+            var options = {method: 'PUT', url: '/users/' + userID, payload: {}};
+            server.inject(options, function(response) {
+                response.statusCode.should.be.exactly(400);
+                done();
+            });
+        });
 
     });
 

@@ -3,6 +3,25 @@ import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGr
 import {fetchObj2} from '../../../actions';
 
 class Login extends Component {
+
+    constructor(){
+        super();
+        this.state = {
+            users: [],
+            url: '/user'
+        }
+    }
+
+  componentDidMount() {
+      // List
+      fetchObj2('/user').then((response) => {
+      console.log({response});
+      this.setState({
+          user: response
+      })
+    });
+  }
+
   render() {
     return (
       <div className="app flex-row align-items-center">

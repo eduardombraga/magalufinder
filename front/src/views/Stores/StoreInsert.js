@@ -61,7 +61,7 @@ class StoreInsert extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     console.log(this.state);
-    saveObj(this.state.url, this.state)
+    saveObj(this.state.url, {storeid:this.state.storeid, cep:this.state.cep, description:this.state.description})
       .then((props) => this.props.history.push(this.state.url));
   }
 
@@ -77,15 +77,15 @@ class StoreInsert extends Component {
               <CardBody>
                     <Form action="" method="post" onSubmit={this.handleSubmit}>
                     <FormGroup>
-                    <Label htmlFor="vat">Filial</Label>
+                    <Label htmlFor="storeid">Filial</Label>
                     <Input type="text" id="storeid" name="storeid" placeholder="codigo da filial" value={this.state.storeid} onChange={this.handleChange} autoComplete="storeid" />
                 </FormGroup>
                 <FormGroup>
-                    <Label htmlFor="street">Cep</Label>
+                    <Label htmlFor="cep">Cep</Label>
                     <Input type="text" id="cep" name="cep" placeholder="Cep" value={this.state.cep} onChange={this.handleChange} autoComplete="cep" />
                 </FormGroup>
                 <FormGroup>
-                    <Label htmlFor="street">Descrição</Label>
+                    <Label htmlFor="description">Descrição</Label>
                     <Input type="text" id="description" name="description" placeholder="Descreva a filial" value={this.state.description} onChange={this.handleChange} autoComplete="description" />
                 </FormGroup>
                   <FormGroup className="form-actions">

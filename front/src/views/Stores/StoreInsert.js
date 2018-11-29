@@ -54,6 +54,10 @@ class StoreInsert extends Component {
     this.setState((prevState) => { return { fadeIn: !prevState }});
   }
 
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
     console.log(this.state);

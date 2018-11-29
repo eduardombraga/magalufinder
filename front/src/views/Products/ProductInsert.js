@@ -54,6 +54,10 @@ class ProductInsert extends Component {
     this.setState((prevState) => { return { fadeIn: !prevState }});
   }
 
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
     console.log(this.state);
@@ -73,15 +77,15 @@ class ProductInsert extends Component {
               <CardBody>
                     <Form action="" method="post" onSubmit={this.handleSubmit}>
                     <FormGroup>
-                    <Label htmlFor="vat">Nome</Label>
+                    <Label htmlFor="productname">Nome</Label>
                     <Input type="text" id="productname" name="productname" placeholder="nome do produto" value={this.state.productname} onChange={this.handleChange} autoComplete="productname" />
                 </FormGroup>
                 <FormGroup>
-                    <Label htmlFor="street">Valor</Label>
+                    <Label htmlFor="productvalue">Valor</Label>
                     <Input type="text" id="productvalue" name="productvalue" placeholder="Valor R$" value={this.state.productvalue} onChange={this.handleChange} autoComplete="productvalue" />
                 </FormGroup>
                 <FormGroup>
-                    <Label htmlFor="street">Descrição</Label>
+                    <Label htmlFor="description">Descrição</Label>
                     <Input type="text" id="description" name="description" placeholder="Descreva o produto" value={this.state.description} onChange={this.handleChange} autoComplete="description" />
                 </FormGroup>
                   <FormGroup className="form-actions">

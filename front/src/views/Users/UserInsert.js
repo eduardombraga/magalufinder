@@ -24,7 +24,7 @@ import {
   Label,
   Row,
 } from 'reactstrap';
-import {fetchObj, saveObj} from '../../actions';
+import {fetchObj, saveObj, fetchObjs} from '../../actions';
 
 class UserInsert extends Component {
   constructor(props) {
@@ -80,7 +80,7 @@ class UserInsert extends Component {
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText><i className="fa fa-user"></i></InputGroupText>
                       </InputGroupAddon>
-                      <Input type="text" id="username" name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange} autoComplete="name"/>
+                      <Input type="text" id="username" name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange} autoComplete="username"/>
                     </InputGroup>
                   </FormGroup>
                   <FormGroup>
@@ -88,7 +88,7 @@ class UserInsert extends Component {
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText><i className="fa fa-asterisk"></i></InputGroupText>
                       </InputGroupAddon>
-                      <Input type="password" id="userpassword" name="userpassword" placeholder="Password" value={this.state.userpassword} onChange={this.handleChange} autoComplete="current-password"/>
+                      <Input type="password" id="userpassword" name="userpassword" placeholder="Password" value={this.state.userpassword} onChange={this.handleChange} autoComplete="userpassword"/>
                     </InputGroup>
                   </FormGroup>
                   <FormGroup className="form-actions">

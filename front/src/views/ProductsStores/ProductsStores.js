@@ -22,7 +22,7 @@ class ProductsStores extends Component {
     super();
     this.state = {
         productsstores: [],
-        url: '/productsstores',
+        url: '/productsstores/edit',
         urlInsert: '/productsstores/insert'
     }
     }

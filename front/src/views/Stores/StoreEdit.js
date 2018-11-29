@@ -39,7 +39,7 @@ class StoreEdit extends Component {
       collapse: true,
       fadeIn: true,
       timeout: 300,
-      url: '/users',
+      url: '/stores',
       cancelUrl: '/dashboard'
     };
   }
@@ -85,16 +85,16 @@ class StoreEdit extends Component {
               <CardBody>
                 <Form action="" method="post" onSubmit={this.handleSubmit}>
                 <FormGroup>
-                    <Label htmlFor="vat">Filial</Label>
-                    <Input type="text" id="storeid" name="storeid" placeholder="codigo da filial" />
+                    <Label htmlFor="storeid">Filial</Label>
+                    <Input type="text" id="storeid" name="storeid" placeholder="codigo da filial" autoComplete="storeid" value={this.state.storeid} onChange={this.handleChange} />
                 </FormGroup>
                 <FormGroup>
-                    <Label htmlFor="street">Cep</Label>
-                    <Input type="text" id="cep" name="cep" placeholder="Cep" />
+                    <Label htmlFor="cep">Cep</Label>
+                    <Input type="text" id="cep" name="cep" placeholder="Cep" autoComplete="cep" value={this.state.cep} onChange={this.handleChange} />
                 </FormGroup>
                 <FormGroup>
-                    <Label htmlFor="street">Descrição</Label>
-                    <Input type="text" id="description" name="description" placeholder="Descreva a filial" />
+                    <Label htmlFor="description">Descrição</Label>
+                    <Input type="text" id="description" name="description" placeholder="Descreva a filial" autoComplete="description" value={this.state.description} onChange={this.handleChange} />
                 </FormGroup>
                   <FormGroup className="form-actions">
                     <Button type="submit" size="sm" color="success">Gravar</Button>

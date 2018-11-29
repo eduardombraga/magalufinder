@@ -24,7 +24,7 @@ import {
   Label,
   Row,
 } from 'reactstrap';
-import {saveObj} from '../../actions';
+import {fetchObj, saveObj, fetchObjs} from '../../actions';
 
 class ProductStoreInsert extends Component {
   constructor(props) {
@@ -48,6 +48,13 @@ class ProductStoreInsert extends Component {
 
   toggleFade() {
     this.setState((prevState) => { return { fadeIn: !prevState }});
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state);
+    saveObj(this.state.url, this.state)
+      .then((props) => this.props.history.push(this.state.url));
   }
 
   render() {

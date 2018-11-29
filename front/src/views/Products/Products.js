@@ -24,7 +24,7 @@ function ProductRow(props) {
       super();
       this.state = {
           products: [],
-          url: '/products',
+          url: '/products/edit',
           urlInsert: '/products/insert'
       }
     }

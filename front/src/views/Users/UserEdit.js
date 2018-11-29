@@ -90,7 +90,7 @@ class UserEdit extends Component {
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText><i className="fa fa-user"></i></InputGroupText>
                       </InputGroupAddon>
-                      <Input type="text" id="username" name="username" placeholder="Username" autoComplete="name" value={this.state.username} onChange={this.handleChange}/>
+                      <Input type="text" id="username" name="username" placeholder="Username" autoComplete="Username" value={this.state.username} onChange={this.handleChange}/>
                     </InputGroup>
                   </FormGroup>
                   <FormGroup>
@@ -98,7 +98,7 @@ class UserEdit extends Component {
                       <InputGroupAddon addonType="prepend">
                         <InputGroupText><i className="fa fa-asterisk"></i></InputGroupText>
                       </InputGroupAddon>
-                      <Input type="password" id="userpassword" name="userpassword" placeholder="Password" autoComplete="current-password" value={this.state.userpassword} onChange={this.handleChange}/>
+                      <Input type="password" id="userpassword" name="userpassword" placeholder="Password" autoComplete="Password" value={this.state.userpassword} onChange={this.handleChange}/>
                     </InputGroup>
                   </FormGroup>
                   <FormGroup className="form-actions">

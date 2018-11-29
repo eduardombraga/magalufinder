@@ -23,7 +23,7 @@ class Stores extends Component {
         super();
         this.state = {
             stores: [],
-            url: '/stores',
+            url: '/stores/edit',
             urlInsert: '/stores/insert'
         }
     }

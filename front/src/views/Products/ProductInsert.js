@@ -24,7 +24,7 @@ import {
   Label,
   Row,
 } from 'reactstrap';
-import {saveObj} from '../../actions';
+import {fetchObj, saveObj, fetchObjs} from '../../actions';
 
 class ProductInsert extends Component {
   constructor(props) {
@@ -35,10 +35,14 @@ class ProductInsert extends Component {
     this.toggle = this.toggle.bind(this);
     this.toggleFade = this.toggleFade.bind(this);
     this.state = {
-      collapse: true,
-      fadeIn: true,
-      timeout: 300,
-      cancelUrl: '/dashboard'
+        productname: '',
+        productvalue: '',
+        description: '',
+        collapse: true,
+        fadeIn: true,
+        timeout: 300,
+        url: '/products',
+        cancelUrl: '/dashboard'
     };
   }
 
@@ -48,6 +52,13 @@ class ProductInsert extends Component {
 
   toggleFade() {
     this.setState((prevState) => { return { fadeIn: !prevState }});
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state);
+    saveObj(this.state.url, this.state)
+      .then((props) => this.props.history.push(this.state.url));
   }
 
   render() {
@@ -63,15 +74,15 @@ class ProductInsert extends Component {
                     <Form action="" method="post" onSubmit={this.handleSubmit}>
                     <FormGroup>
                     <Label htmlFor="vat">Nome</Label>
-                    <Input type="text" id="productname" name="productname" placeholder="nome do produto" />
+                    <Input type="text" id="productname" name="productname" placeholder="nome do produto" value={this.state.productname} onChange={this.handleChange} autoComplete="productname" />
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="street">Valor</Label>
-                    <Input type="text" id="productvalue" name="productvalue" placeholder="Valor R$" />
+                    <Input type="text" id="productvalue" name="productvalue" placeholder="Valor R$" value={this.state.productvalue} onChange={this.handleChange} autoComplete="productvalue" />
                 </FormGroup>
                 <FormGroup>
                     <Label htmlFor="street">Descrição</Label>
-                    <Input type="text" id="description" name="description" placeholder="Descreva o produto" />
+                    <Input type="text" id="description" name="description" placeholder="Descreva o produto" value={this.state.description} onChange={this.handleChange} autoComplete="description" />
                 </FormGroup>
                   <FormGroup className="form-actions">
                     <Button type="submit" size="sm" color="success">Gravar</Button>

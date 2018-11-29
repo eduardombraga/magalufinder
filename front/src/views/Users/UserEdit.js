@@ -24,7 +24,7 @@ import {
   Label,
   Row,
 } from 'reactstrap';
-import {fetchObj, updateObj, fetchObjs} from '../../actions';
+import {fetchObj, updateObj} from '../../actions';
 
 class UserEdit extends Component {
   constructor(props) {
@@ -33,9 +33,9 @@ class UserEdit extends Component {
     this.toggle = this.toggle.bind(this);
     this.toggleFade = this.toggleFade.bind(this);
     this.state = {
-        id: '',
         username: '',
         userpassword: '',
+        useradmin: false,
       collapse: true,
       fadeIn: true,
       timeout: 300,
@@ -66,12 +66,19 @@ class UserEdit extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    updateObj(`${this.state.url}/`, this.state)
+    const { match } = this.props;
+    this.state.useradmin = 0 ? true : false;
+    updateObj(`${this.state.url}/`+match.params.id, {username:this.state.username, userpassword:this.state.userpassword, useradmin:this.state.useradmin})
       .then((props) => this.props.history.push(this.state.url));
+      console.log(this.state);
   }
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
+  }
+
+  handleCheckBox = (e) => {
+      this.setState({ check: !this.state.check });
   }
 
   render() {
@@ -99,6 +106,10 @@ class UserEdit extends Component {
                         <InputGroupText><i className="fa fa-asterisk"></i></InputGroupText>
                       </InputGroupAddon>
                       <Input type="password" id="userpassword" name="userpassword" placeholder="Password" autoComplete="Password" value={this.state.userpassword} onChange={this.handleChange}/>
+                    </InputGroup>
+                    <InputGroup>
+                    <Label htmlFor="useradmin">Usuário admin ?</Label>
+                    <input type="checkbox" id="useradmin" name="useradmin" checked={this.state.useradmin} value={this.state.useradmin} onChange={this.handleChange} />
                     </InputGroup>
                   </FormGroup>
                   <FormGroup className="form-actions">

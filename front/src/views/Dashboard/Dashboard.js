@@ -510,14 +510,17 @@ class Dashboard extends Component {
 					<FormGroup>
 					<Label htmlFor="postal-code">Cep origem</Label>
 					<Input type="text" id="postal-code" placeholder="Seu cep atual" />
-					</FormGroup>
+                    </FormGroup>
+                    <FormGroup className="form-actions">
+                    <Button type="submit" size="sm" color="success">Pesquisar</Button>
+                  </FormGroup>
 				</Col>
 				<Col xs="4">
 					<FormGroup>
 					<Label htmlFor="postal-code">Cep destino</Label>
 					<Input type="text" id="postal-code" placeholder="Cep da filial" />
-					</FormGroup>
-				</Col>
+                    </FormGroup>
+                </Col>
 				</Row>
 			</CardBody>
             </Card>
@@ -573,7 +576,10 @@ class Dashboard extends Component {
 					<FormGroup>
 					<Label htmlFor="postal-code">Cep</Label>
 					<Input type="text" id="postal-code" placeholder="Digite seu cep" />
-					</FormGroup>
+                    </FormGroup>
+                    <FormGroup className="form-actions">
+                    <Button type="submit" size="sm" color="success">Pesquisar</Button>
+                  </FormGroup>
 				</Col>
 				</FormGroup>
 			</CardBody>

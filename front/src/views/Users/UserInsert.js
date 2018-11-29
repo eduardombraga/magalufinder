@@ -24,7 +24,7 @@ import {
   Label,
   Row,
 } from 'reactstrap';
-import {fetchObj, saveObj, fetchObjs} from '../../actions';
+import {fetchObj, saveObj} from '../../actions';
 
 class UserInsert extends Component {
   constructor(props) {
@@ -33,8 +33,9 @@ class UserInsert extends Component {
     this.toggle = this.toggle.bind(this);
     this.toggleFade = this.toggleFade.bind(this);
     this.state = {
-      username: '',
-      userpassword: '',
+        username: '',
+        userpassword: '',
+        useradmin: false,
       collapse: true,
       fadeIn: true,
       timeout: 300,
@@ -60,7 +61,7 @@ class UserInsert extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     console.log(this.state);
-    saveObj(this.state.url, this.state)
+    saveObj(this.state.url, {username:this.state.username, userpassword:this.state.userpassword, useradmin:this.state.useradmin})
       .then((props) => this.props.history.push(this.state.url));
   }
 
@@ -89,6 +90,10 @@ class UserInsert extends Component {
                         <InputGroupText><i className="fa fa-asterisk"></i></InputGroupText>
                       </InputGroupAddon>
                       <Input type="password" id="userpassword" name="userpassword" placeholder="Password" value={this.state.userpassword} onChange={this.handleChange} autoComplete="userpassword"/>
+                    </InputGroup>
+                    <InputGroup>
+                    <Label htmlFor="useradmin">Usuário admin ?</Label>
+                    <input type="checkbox" id="useradmin" name="useradmin" checked={this.state.useradmin} value={this.state.useradmin} onChange={this.handleChange} />
                     </InputGroup>
                   </FormGroup>
                   <FormGroup className="form-actions">

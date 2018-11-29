@@ -61,7 +61,7 @@ class ProductInsert extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     console.log(this.state);
-    saveObj(this.state.url, this.state)
+    saveObj(this.state.url, {productname:this.state.productname, productvalue:this.state.productvalue, description:this.state.description})
       .then((props) => this.props.history.push(this.state.url));
   }
 

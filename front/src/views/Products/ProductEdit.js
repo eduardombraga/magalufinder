@@ -64,7 +64,8 @@ class ProductEdit extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    updateObj(`${this.state.url}/`, this.state)
+    const { match } = this.props;
+    updateObj(`${this.state.url}/`+match.params.id, {productname:this.state.productname, productvalue:this.state.productvalue, description:this.state.description})
       .then((props) => this.props.history.push(this.state.url));
   }
 

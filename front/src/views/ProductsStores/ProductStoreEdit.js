@@ -24,7 +24,7 @@ import {
   Label,
   Row,
 } from 'reactstrap';
-import {fetchObj, updateObj, fetchObjs} from '../../actions';
+import {fetchObj, updateObj} from '../../actions';
 
 class ProductStoreEdit extends Component {
   constructor(props) {
@@ -63,7 +63,8 @@ class ProductStoreEdit extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    updateObj(`${this.state.url}/`, this.state)
+    const { match } = this.props;
+    updateObj(`${this.state.url}/`+match.params.id, {productid:this.state.productid, storeid:this.state.storeid})
       .then((props) => this.props.history.push(this.state.url));
   }
 

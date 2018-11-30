@@ -35,10 +35,13 @@ class ProductStoreInsert extends Component {
     this.toggle = this.toggle.bind(this);
     this.toggleFade = this.toggleFade.bind(this);
     this.state = {
-      collapse: true,
-      fadeIn: true,
-      timeout: 300,
-      cancelUrl: '/dashboard'
+        productid: '',
+        storeid: '',
+        collapse: true,
+        fadeIn: true,
+        timeout: 300,
+        url: '/productsstores',
+        cancelUrl: '/dashboard'
     };
   }
 
@@ -57,7 +60,7 @@ class ProductStoreInsert extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     console.log(this.state);
-    saveObj(this.state.url, this.state)
+    saveObj(this.state.url, {productid:this.state.productid, storeid:this.state.storeid})
       .then((props) => this.props.history.push(this.state.url));
   }
 
@@ -73,12 +76,12 @@ class ProductStoreInsert extends Component {
               <CardBody>
                 <Form action="" method="post" onSubmit={this.handleSubmit}>
                     <FormGroup>
-                    <Label htmlFor="vat">Produto</Label>
-                    <Input type="text" id="productid" name="productid" placeholder="codigo do produto" />
+                    <Label htmlFor="productid">Produto</Label>
+                    <Input type="text" id="productid" name="productid" placeholder="codigo do produto" value={this.state.productid} onChange={this.handleChange} />
                 </FormGroup>
                 <FormGroup>
-                    <Label htmlFor="street">Filial</Label>
-                    <Input type="text" id="storeid" name="storeid" placeholder="codigo da filial" />
+                    <Label htmlFor="storeid">Filial</Label>
+                    <Input type="text" id="storeid" name="storeid" placeholder="codigo da filial" value={this.state.storeid} onChange={this.handleChange} />
                 </FormGroup>
                   <FormGroup className="form-actions">
                     <Button type="submit" size="sm" color="success">Gravar</Button>

@@ -68,8 +68,7 @@ export function saveObj(url, data) {
       headers: {
         "Content-Type": "application/json",
       }
-    }).then(handleResponse)
-      .then(data => {
+    }).then(data => {
         swal("", "Registro salvo com sucesso!", "success");
       });
 }
@@ -84,8 +83,7 @@ export function updateObj(url, data) {
     headers: {
       "Content-Type": "application/json",
     }
-  }).then(handleResponse)
-    .then(data => {
+  }).then(data => {
       swal("", "Registro atualizado com sucesso!", "success");
     });
 }

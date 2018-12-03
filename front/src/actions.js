@@ -11,6 +11,7 @@ let msg = "Ocorreu algum problema com esta operação! \n Tente novamente.";
 
 function handleResponse(response) {
   if (response.ok) {
+      console.log(response);
     return response.json();
   } else {
     return response.json().then((data) => {
@@ -83,8 +84,9 @@ export function updateObj(url, data) {
     headers: {
       "Content-Type": "application/json",
     }
-  }).then(data => {
-      swal("", "Registro atualizado com sucesso!", "success");
+  }).then(handleResponse)
+    .then(data => {
+      return swal("", "Registro atualizado com sucesso!", "success");
     });
 }
 
@@ -119,7 +121,7 @@ export function fetchObjs(url, page = 1, records = 10) {
   let query = `${apiUrl}${url}`;
 
     return fetch(query, {})
-    .then(res => res.json());
+    .then(handleResponse);
 }
 
 export function fetchObj(url, id) {

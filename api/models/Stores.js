@@ -35,9 +35,9 @@ StoresModel.prototype.addStore = function(storeid, cep, description) {
         cep: cep,
         description: description
     }).then(function (data){
-        return 'Filial criada com sucesso.';
+        return {userMessage: 'Filial criada com sucesso.'};
     }).catch(function (err){
-        return 'Falha ao criar filial.';
+        return {userMessage: 'Falha ao criar filial.'};
     });
 };
 
@@ -54,9 +54,9 @@ StoresModel.prototype.updateStore = function(id, storeid, cep, description) {
         cep: cep,
         description: description
     }).then(function (data){
-        return 'Filial atualizada com sucesso.';
+        return {userMessage: 'Filial atualizada com sucesso.'};
     }).catch(function (err){
-        return 'Falha ao atualizar filial.';
+        return {userMessage: 'Falha ao atualizar filial.'};
     });
 };
 
@@ -68,10 +68,10 @@ StoresModel.prototype.deleteStore = function(id) {
     return this.db('stores').where('storeid', id)
             .del()
             .then(function (data){
-                return 'Filial removida com sucesso.';
+                return {userMessage: 'Filial removida com sucesso.'};
             })
             .catch(function (err){
-                return 'Falha ao deletar filial.';
+                return {userMessage: 'Falha ao deletar filial.'};
             });
 };
 

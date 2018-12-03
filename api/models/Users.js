@@ -44,9 +44,9 @@ UsersModel.prototype.addUser = function(username, userpassword, useradmin) {
         userpassword: userpassword,
         useradmin: useradmin
     }).then(function (data){
-        return 'Usuario criado com sucesso.';
+        return {userMessage: 'Usuario criado com sucesso.'};
     }).catch(function (err){
-        return 'Falha ao criar usuário.';
+        return {userMessage: 'Falha ao criar usuário.'};
     });
 };
 
@@ -63,9 +63,9 @@ UsersModel.prototype.updateUser = function(id, username, userpassword, useradmin
         userpassword: userpassword,
         useradmin: useradmin
     }).then(function (data){
-        return 'Usuario atualizado com sucesso.';
+        return {userMessage: 'Usuario atualizado com sucesso.'};
     }).catch(function (err){
-        return 'Falha ao atualizar usuário.';
+        return {userMessage: 'Falha ao atualizar usuário.'};
     });
 };
 
@@ -77,10 +77,10 @@ UsersModel.prototype.deleteUser = function(id) {
     return this.db('users').where('id', id)
             .del()
             .then(function (data){
-                return 'Usuario removido com sucesso.';
+                return {userMessage: 'Usuario removido com sucesso.'};
             })
             .catch(function (err){
-                return 'Falha ao deletar usuário.';
+                return {userMessage: 'Falha ao deletar usuário.'};
             });
 };
 

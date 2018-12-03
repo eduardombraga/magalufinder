@@ -34,9 +34,9 @@ ProductsStoresModel.prototype.addProductStore = function(productid, storeid) {
         productid: productid,
         storeid: storeid
     }).then(function (data){
-        return 'Produto x Loja criado com sucesso.';
+        return {userMessage: 'Produto x Loja criado com sucesso.'};
     }).catch(function (err){
-        return 'Falha ao criar produto x loja.';
+        return {userMessage: 'Falha ao criar produto x loja.'};
     });
 };
 
@@ -52,9 +52,9 @@ ProductsStoresModel.prototype.updateProduct = function(productidParam, storeidPa
         productid: productid,
         storeid: storeid
     }).then(function (data){
-        return 'Produto x Loja atualizado com sucesso.';
+        return {userMessage: 'Produto x Loja atualizado com sucesso.'};
     }).catch(function (err){
-        return 'Falha ao atualizar produto x loja.';
+        return {userMessage: 'Falha ao atualizar produto x loja.'};
     });
 };
 
@@ -66,10 +66,10 @@ ProductsStoresModel.prototype.deleteProductStore = function(productid, storeid) 
     return this.db('productsstores').where('productid', productid).andWhere('storeid', storeid)
             .del()
             .then(function (data){
-                return 'Produto x Loja removido com sucesso.';
+                return {userMessage: 'Produto x Loja removido com sucesso.'};
             })
             .catch(function (err){
-                return 'Falha ao deletar produto x loja.';
+                return {userMessage: 'Falha ao deletar produto x loja.'};
             });
 };
 

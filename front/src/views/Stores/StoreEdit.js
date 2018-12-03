@@ -65,7 +65,9 @@ class StoreEdit extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { match } = this.props;
-    updateObj(`${this.state.url}/`+match.params.id, {storeid:this.state.storeid, cep:this.state.cep, description:this.state.description})
+    let state = this.state;
+    state.storeid = state.storeid + '';
+    updateObj(`${this.state.url}/`+match.params.id, {storeid:state.storeid, cep:state.cep, description:state.description})
       .then((props) => this.props.history.push(this.state.url));
       console.log(this.state);
   }

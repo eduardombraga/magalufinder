@@ -35,9 +35,9 @@ ProductsModel.prototype.addProduct = function(productname, productvalue, descrip
         productvalue: productvalue,
         description: description
     }).then(function (data){
-        return 'Produto criado com sucesso.';
+        return {userMessage: 'Produto criado com sucesso.'};
     }).catch(function (err){
-        return 'Falha ao criar produto.';
+        return {userMessage: 'Falha ao criar produto.'};
     });
 };
 
@@ -54,9 +54,9 @@ ProductsModel.prototype.updateProduct = function(id, productname, productvalue, 
         productvalue: productvalue,
         description: description
     }).then(function (data){
-        return 'Produto atualizado com sucesso.';
+        return {userMessage: 'Produto atualizado com sucesso.'};
     }).catch(function (err){
-        return 'Falha ao atualizar produto.';
+        return {userMessage: 'Falha ao atualizar produto.'};
     });
 };
 
@@ -68,10 +68,10 @@ ProductsModel.prototype.deleteProduct = function(id) {
     return this.db('products').where('id', id)
             .del()
             .then(function (data){
-                return 'Produto removido com sucesso.';
+                return {userMessage: 'Produto removido com sucesso.'};
             })
             .catch(function (err){
-                return 'Falha ao deletar produto.';
+                return {userMessage: 'Falha ao deletar produto.'};
             });
 };
 
